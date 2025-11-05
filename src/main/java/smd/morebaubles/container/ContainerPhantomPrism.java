@@ -33,8 +33,8 @@ public class ContainerPhantomPrism extends Container {
 
 		addPlayerSlots();
 
-		if (player.world.isRemote)
-			return;
+		if (player.world.isRemote) {
+        }
 	}
 
 	protected void addPlayerSlots() {

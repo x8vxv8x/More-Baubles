@@ -50,21 +50,19 @@ public class morebaubles {
 	@Mod.Instance
 	public static morebaubles instance;
 
-	public static final String MODID = "morebaubles";
+	public static final RegistryHelper registryHelper = new RegistryHelper(Tags.MOD_ID);
 
-
-	public static final RegistryHelper registryHelper = new RegistryHelper(MODID);
-	// TODO config gui
 	public static Config config;
 
 	public static Logger logger;
 
-	@SidedProxy(clientSide = "smd.morebaubles.proxy.ClientProxy", serverSide = "smd.morebaubles.proxy.ServerProxy")
+	@SidedProxy(clientSide = "smd.morebaubles.proxy.ClientProxy",
+			    serverSide = "smd.morebaubles.proxy.ServerProxy")
+
 	public static ISideProxy proxy;
 
 	public static final String ARMOR_TEXTURE_PATH = "textures/models/armor/";
 
-	//	static final Comparator<ItemStack> tabSorter;
 	public static final CreativeTabs TAB = new CreativeTabs("morebaubles") {
 
 		@Override
@@ -72,12 +70,6 @@ public class morebaubles {
 		public ItemStack createIcon() {
 			return new ItemStack(ModItems.trinketObsidianSkull);
 		}
-
-		//		@Override
-		//        public void displayAllRelevantItems(NonNullList<ItemStack> items) {
-		//            super.displayAllRelevantItems(items);
-		//            items.sort(tabSorter);
-		//        }
 	};
 
 	public static boolean isQuarkLoaded = false;
@@ -95,8 +87,6 @@ public class morebaubles {
 		config.preInit(event);
 		ModConfig.initConfig();
 
-		// TODO make some of these non-static and move registration to
-		// constructor
 		MinecraftForge.EVENT_BUS.register(EventHandler.class);
 		MinecraftForge.EVENT_BUS.register(AnvilRecipes.class);
 		MinecraftForge.EVENT_BUS.register(ModCrafting.class);
@@ -149,9 +139,6 @@ public class morebaubles {
 	@Mod.EventHandler
 	public static void postInit(FMLPostInitializationEvent event) {
 		config.postInit(event);
-		//		logger.info(Config.modConfigs.get(MODID)==null);
-		//		isQuarkLoaded = Loader.isModLoaded("quark");
-		//		isBotaniaLoaded = Loader.isModLoaded("botania");
 	}
 
 	@Mod.EventHandler

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import smd.morebaubles.Tags;
 import smd.morebaubles.morebaubles;
 import smd.morebaubles.baubleeffect.EnumBaubleModifier;
 import smd.morebaubles.item.base.GenericItemBB;
@@ -53,18 +54,16 @@ public class ItemModifierBook extends GenericItemBB implements ICustomEnchantCol
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip,
 			ITooltipFlag flagIn) {
 		if (stack.hasTagCompound()&&stack.getTagCompound().hasKey("baubleModifier")) {
-			tooltip.add(morebaubles.proxy.translate(morebaubles.MODID+".modifier."
+			tooltip.add(morebaubles.proxy.translate(Tags.MOD_ID+".modifier."
 					+stack.getTagCompound().getString("baubleModifier")+".info"));
 		}
 		super.addInformation(stack, worldIn, tooltip, flagIn);
-		tooltip.add(morebaubles.proxy.translate(morebaubles.MODID+".creativeonly"));
+		tooltip.add(morebaubles.proxy.translate(Tags.MOD_ID+".creativeonly"));
 	}
 
 	@Override
 	public boolean hasEffect(ItemStack stack) {
-		return stack.hasTagCompound() 
-				? stack.getTagCompound().getString("baubleModifier")!="none"
-				: false;
+		return stack.hasTagCompound() && stack.getTagCompound().getString("baubleModifier") != "none";
 	}
 
 	@Override

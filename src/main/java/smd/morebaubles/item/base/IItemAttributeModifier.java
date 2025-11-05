@@ -8,6 +8,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
 public interface IItemAttributeModifier {
-	public abstract Map<IAttribute, AttributeModifier> getModifiers(ItemStack stack,
-			EntityPlayer player);
+	Map<IAttribute, AttributeModifier> getModifiers(ItemStack stack,
+                                                    EntityPlayer player);
 }

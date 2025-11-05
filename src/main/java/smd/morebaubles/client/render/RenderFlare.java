@@ -1,5 +1,6 @@
 package smd.morebaubles.client.render;
 
+import smd.morebaubles.Tags;
 import smd.morebaubles.morebaubles;
 import smd.morebaubles.client.model.ModelFlare;
 import smd.morebaubles.entity.EntityFlare;
@@ -9,8 +10,8 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderFlare extends Render<EntityFlare> {
-	private ModelFlare flare;
-	private ResourceLocation flareTexture = new ResourceLocation(morebaubles.MODID,
+	private final ModelFlare flare;
+	private final ResourceLocation flareTexture = new ResourceLocation(Tags.MOD_ID,
 			"textures/entity/flare.png");
 
 	public RenderFlare(RenderManager renderManager) {

@@ -1,5 +1,6 @@
 package smd.morebaubles.block;
 
+import smd.morebaubles.Tags;
 import smd.morebaubles.morebaubles;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
@@ -24,7 +25,7 @@ public class BlockReforger extends GenericTileBlock {
 	public static final PropertyDirection FACING = PropertyDirection.create("facing");
 
 	public BlockReforger() {
-		super(morebaubles.MODID, "reforger", TileReforger.class, morebaubles.TAB,
+		super(Tags.MOD_ID, "reforger", TileReforger.class, morebaubles.TAB,
 				Material.IRON, 3.0f, 100.0f);
 		setLightLevel(13f/16f).setLightOpacity(0);
 		setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
@@ -52,7 +53,7 @@ public class BlockReforger extends GenericTileBlock {
 		if (!world.isRemote) {
 			TileEntity te = world.getTileEntity(pos);
 			if (te instanceof TileReforger) {
-				ItemStack stack = ((TileReforger) te)
+				ItemStack stack = te
 						.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null)
 						.getStackInSlot(0);
 				world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), stack));

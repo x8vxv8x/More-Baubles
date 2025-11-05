@@ -70,9 +70,9 @@ public class EntityFlare extends EntityArrow implements ILightProvider {
 		x += this.rand.nextGaussian()*0.007499999832361937D*(double) inaccuracy;
 		y += this.rand.nextGaussian()*0.007499999832361937D*(double) inaccuracy;
 		z += this.rand.nextGaussian()*0.007499999832361937D*(double) inaccuracy;
-		x *= (double) velocity;
-		y *= (double) velocity;
-		z *= (double) velocity;
+		x *= velocity;
+		y *= velocity;
+		z *= velocity;
 		this.motionX = x;
 		this.motionY = y;
 		this.motionZ = z;
@@ -95,7 +95,7 @@ public class EntityFlare extends EntityArrow implements ILightProvider {
 		float f1 = -MathHelper.sin((rotationPitchIn+pitchOffset)*0.017453292F);
 		float f2 = MathHelper.cos(rotationYawIn*0.017453292F)
 				*MathHelper.cos(rotationPitchIn*0.017453292F);
-		this.shoot((double) f, (double) f1, (double) f2, velocity, inaccuracy);
+		this.shoot(f, f1, f2, velocity, inaccuracy);
 		this.motionX += entityThrower.motionX;
 		this.motionZ += entityThrower.motionZ;
 
@@ -181,7 +181,7 @@ public class EntityFlare extends EntityArrow implements ILightProvider {
 			float f = MathHelper.sqrt(this.motionX*this.motionX+this.motionZ*this.motionZ);
 			this.rotationYaw = (float) (MathHelper.atan2(this.motionX, this.motionZ)
 					*(180D/Math.PI));
-			this.rotationPitch = (float) (MathHelper.atan2(this.motionY, (double) f)
+			this.rotationPitch = (float) (MathHelper.atan2(this.motionY, f)
 					*(180D/Math.PI));
 			this.prevRotationYaw = this.rotationYaw;
 			this.prevRotationPitch = this.rotationPitch;
@@ -233,9 +233,9 @@ public class EntityFlare extends EntityArrow implements ILightProvider {
 			}
 
 			this.inGround = false;
-			this.motionX *= (double) (this.rand.nextFloat()*0.2F);
-			this.motionY *= (double) (this.rand.nextFloat()*0.2F);
-			this.motionZ *= (double) (this.rand.nextFloat()*0.2F);
+			this.motionX *= this.rand.nextFloat()*0.2F;
+			this.motionY *= this.rand.nextFloat()*0.2F;
+			this.motionZ *= this.rand.nextFloat()*0.2F;
 //			this.ticksInGround = 0;
 //			this.ticksInAir = 0;
 		} else {
@@ -300,7 +300,7 @@ public class EntityFlare extends EntityArrow implements ILightProvider {
 		this.posZ += this.motionZ;
 		float f = MathHelper.sqrt(this.motionX*this.motionX+this.motionZ*this.motionZ);
 		this.rotationYaw = (float) (MathHelper.atan2(this.motionX, this.motionZ)*(180D/Math.PI));
-		this.rotationPitch = (float) (MathHelper.atan2(this.motionY, (double) f)*(180D/Math.PI));
+		this.rotationPitch = (float) (MathHelper.atan2(this.motionY, f)*(180D/Math.PI));
 //		while ((this.rotationPitch = this.prevRotationPitch)<-180.0F) {
 //			this.prevRotationPitch -= 360.0F;
 //		}
@@ -338,7 +338,7 @@ public class EntityFlare extends EntityArrow implements ILightProvider {
 		this.motionZ *= velMultiplier;
 
 		if (!this.hasNoGravity()) {
-			this.motionY -= (double) gravity;
+			this.motionY -= gravity;
 		}
 
 		this.setPosition(this.posX, this.posY, this.posZ);
@@ -446,9 +446,9 @@ public class EntityFlare extends EntityArrow implements ILightProvider {
 			IBlockState iblockstate = this.world.getBlockState(blockpos);
 			this.inTile = iblockstate.getBlock();
 //            this.inData = this.inTile.getMetaFromState(iblockstate);
-			this.motionX = (double) ((float) (raytraceResultIn.hitVec.x-this.posX));
-			this.motionY = (double) ((float) (raytraceResultIn.hitVec.y-this.posY));
-			this.motionZ = (double) ((float) (raytraceResultIn.hitVec.z-this.posZ));
+			this.motionX = (float) (raytraceResultIn.hitVec.x-this.posX);
+			this.motionY = (float) (raytraceResultIn.hitVec.y-this.posY);
+			this.motionZ = (float) (raytraceResultIn.hitVec.z-this.posZ);
 			float f2 = MathHelper.sqrt(
 					this.motionX*this.motionX+this.motionY*this.motionY+this.motionZ*this.motionZ);
 			this.posX -= this.motionX/(double) f2*0.05000000074505806D;

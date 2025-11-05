@@ -1,5 +1,6 @@
 package smd.morebaubles.block;
 
+import smd.morebaubles.Tags;
 import smd.morebaubles.morebaubles;
 import smd.morebaubles.client.gui.GuiBetterButton;
 import smd.morebaubles.network.NBTPacket;
@@ -21,12 +22,12 @@ public class GuiReforger extends GuiContainer {
 	public static final int WIDTH = 176;
 	public static final int HEIGHT = 162;
 
-	private static final ResourceLocation background = new ResourceLocation(morebaubles.MODID,
+	private static final ResourceLocation background = new ResourceLocation(Tags.MOD_ID,
 			"textures/gui/reforger.png");
-	private static final String tranStr = morebaubles.MODID+".gui.reforger.";
-	private ContainerReforger cont;
-	private TileReforger te;
-	private ItemStackHandler handler;
+	private static final String tranStr = Tags.MOD_ID+".gui.reforger.";
+	private final ContainerReforger cont;
+	private final TileReforger te;
+	private final ItemStackHandler handler;
 
 	public GuiReforger(TileReforger tileEntity, ContainerReforger container) {
 		super(container);
@@ -81,11 +82,11 @@ public class GuiReforger extends GuiContainer {
 				levelsStr = morebaubles.proxy.translateWithArgs(tranStr+"levels", levelCost);
 			}
 			fontRenderer.drawString(
-					xpCostStr+" "+String.valueOf(xpCost)+(inCreative ? "" : (" "+levelsStr)), 0, 0,
+					xpCostStr+" "+ xpCost +(inCreative ? "" : (" "+levelsStr)), 0, 0,
 					(xp>xpCost||inCreative ? 0x55FF55 : 0xFF5555));
 			if (tag.hasKey("baubleModifier")) {
 				fontRenderer.drawSplitString(
-						morebaubles.proxy.translate(morebaubles.MODID+".modifier."
+						morebaubles.proxy.translate(Tags.MOD_ID+".modifier."
 								+tag.getString("baubleModifier")+".info"),
 						0, 1+fontRenderer.FONT_HEIGHT, 0xFFFFFF, 30);
 			}

@@ -2,6 +2,7 @@ package smd.morebaubles.integration;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.apache.commons.lang3.tuple.Pair;
@@ -25,17 +26,17 @@ public class JeiIntegration implements IModPlugin {
 			Pair<Integer, ItemStack> result = AnvilRecipes.simpleRecipes.get(ingredients);
 			recipes.add(registry.getJeiHelpers().getVanillaRecipeFactory().createAnvilRecipe(
 					new ItemStack(ingredients.getLeft()),
-					Arrays.asList(new ItemStack(ingredients.getRight())),
-					Arrays.asList(result.getRight())));
+                    Collections.singletonList(new ItemStack(ingredients.getRight())),
+                    Collections.singletonList(result.getRight())));
 		}
 		recipes.add(registry.getJeiHelpers().getVanillaRecipeFactory().createAnvilRecipe(
 				new ItemStack(ModItems.shieldCobalt),
-				Arrays.asList(new ItemStack(ModItems.trinketObsidianSkull)),
-				Arrays.asList(new ItemStack(ModItems.shieldObsidian))));
+                Collections.singletonList(new ItemStack(ModItems.trinketObsidianSkull)),
+                Collections.singletonList(new ItemStack(ModItems.shieldObsidian))));
 		recipes.add(registry.getJeiHelpers().getVanillaRecipeFactory().createAnvilRecipe(
 				new ItemStack(ModItems.shieldObsidian),
-				Arrays.asList(new ItemStack(ModItems.trinketAnkhCharm)),
-				Arrays.asList(new ItemStack(ModItems.shieldAnkh))));
+                Collections.singletonList(new ItemStack(ModItems.trinketAnkhCharm)),
+                Collections.singletonList(new ItemStack(ModItems.shieldAnkh))));
 
 		registry.addRecipes(recipes, VanillaRecipeCategoryUid.ANVIL);
 	}

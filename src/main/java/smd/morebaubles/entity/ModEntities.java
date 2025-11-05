@@ -1,5 +1,6 @@
 package smd.morebaubles.entity;
 
+import smd.morebaubles.Tags;
 import smd.morebaubles.morebaubles;
 import smd.morebaubles.item.ModItems;
 import net.minecraft.entity.Entity;
@@ -11,7 +12,7 @@ public class ModEntities {
 	public static Entity beenade;
 
 	public static <T extends Entity> void register(String name, Class<T> c, int id) {
-		EntityRegistry.registerModEntity(new ResourceLocation(morebaubles.MODID, name), c,
+		EntityRegistry.registerModEntity(new ResourceLocation(Tags.MOD_ID, name), c,
 				name, id, morebaubles.instance, 128, 10, true);
 	}
 
@@ -33,9 +34,9 @@ public class ModEntities {
 		registerWithRenderer("grenade", EntityGrenade.class, ModItems.grenade, id++);
 		registerWithRenderer("beenade", EntityBeenade.class, ModItems.beenade, id++);
 		registerWithRenderer("bee", EntityBee.class,
-				new ResourceLocation(morebaubles.MODID, "textures/other/bee.png"), id++);
+				new ResourceLocation(Tags.MOD_ID, "textures/other/bee.png"), id++);
 		register("flare", EntityFlare.class, id++);
-//		EntityRegistry.registerModEntity(new ResourceLocation(morebaubles.MODID, "flare"),
+//		EntityRegistry.registerModEntity(new ResourceLocation(Tags.MOD_ID, "flare"),
 //				EntityFlare.class, "flare", id++, morebaubles.instance, 128, 3, true);
 		morebaubles.proxy.registerEntityRenderingHandlers();
 	}

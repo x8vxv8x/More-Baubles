@@ -8,6 +8,7 @@ import java.util.UUID;
 import baubles.api.BaublesApi;
 import baubles.api.cap.BaublesCapabilities;
 import baubles.api.cap.IBaublesItemHandler;
+import smd.morebaubles.Tags;
 import smd.morebaubles.morebaubles;
 import smd.morebaubles.ModConfig;
 import smd.morebaubles.item.base.IItemAttributeModifier;
@@ -115,8 +116,6 @@ public class BaubleAttributeModifierHandler {
 				}
 			}
 			if (mod!=null&&mod!=EnumBaubleModifier.NONE) {
-				// player.getEntityAttribute(mod.attribute).applyModifier(new
-				// AttributeModifier());
 				int i = 0;
 				for (; i<=baubles.getSlots(); i++) {
 					if (i==baubles.getSlots())
@@ -186,18 +185,15 @@ public class BaubleAttributeModifierHandler {
 			String mod = stack.getTagCompound().getString("baubleModifier");
 			if (!mod.equals("none")) {
 				event.getToolTip().add(morebaubles.proxy
-						.translate(morebaubles.MODID+".modifier."+mod+".info"));
+						.translate(Tags.MOD_ID+".modifier."+mod+".info"));
 				String modName = morebaubles.proxy
-						.translate(morebaubles.MODID+".modifier."+mod+".name");
+						.translate(Tags.MOD_ID+".modifier."+mod+".name");
 				String name = event.getToolTip().get(0);
 				String colorCode = "";
 				while (name.length()>1&&name.charAt(0)=='\u00A7') {
 					colorCode += name.substring(0, 2);
 					name = name.substring(2);
 				}
-//				if (colorCode.length() == 0) {
-//					colorCode = "\u00A70";
-//				}
 				event.getToolTip().set(0, colorCode+modName+" "+name);
 			}
 		}
@@ -226,7 +222,7 @@ public class BaubleAttributeModifierHandler {
 		if (player.getEntityAttribute(mod.attribute).getModifier(UUIDs.get(slot))==null) {
 			player.getEntityAttribute(mod.attribute)
 					.applyModifier(new AttributeModifier(UUIDs.get(slot),
-							"Bauble slot "+String.valueOf(slot)+" modifier", mod.amount,
+							"Bauble slot "+ slot +" modifier", mod.amount,
 							mod.operation));
 		}
 	}

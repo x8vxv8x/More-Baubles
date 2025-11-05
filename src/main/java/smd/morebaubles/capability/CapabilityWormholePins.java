@@ -3,6 +3,7 @@ package smd.morebaubles.capability;
 import java.util.ArrayList;
 import java.util.List;
 
+import smd.morebaubles.Tags;
 import smd.morebaubles.morebaubles;
 import smd.morebaubles.wormhole.DebugTarget;
 import smd.morebaubles.wormhole.IWormholeTarget;
@@ -33,9 +34,9 @@ public class CapabilityWormholePins {
 	public static void onEntityConstruct(AttachCapabilitiesEvent<Entity> event) {
 		if (!(event.getObject() instanceof EntityPlayer))
 			return;
-		event.addCapability(new ResourceLocation(morebaubles.MODID, "IWormholePins"),
+		event.addCapability(new ResourceLocation(Tags.MOD_ID, "IWormholePins"),
 				new ICapabilitySerializable<NBTTagCompound>() {
-					IWormholePins inst = PIN_CAP.getDefaultInstance();
+					final IWormholePins inst = PIN_CAP.getDefaultInstance();
 
 					@Override
 					public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
@@ -59,8 +60,8 @@ public class CapabilityWormholePins {
 				});
 	}
 
-	public static interface IWormholePins {
-		public List<IWormholeTarget> getPinList();
+	public interface IWormholePins {
+		List<IWormholeTarget> getPinList();
 	}
 
 	public static class Storage implements IStorage<IWormholePins> {
@@ -116,7 +117,7 @@ public class CapabilityWormholePins {
 		if (target==null)
 			return null;
 		target.fromNBT(tag);
-		target.setEnabled(tag.hasKey("enabled") ? tag.getBoolean("enabled") : true);
+		target.setEnabled(!tag.hasKey("enabled") || tag.getBoolean("enabled"));
 		return target;
 	}
 

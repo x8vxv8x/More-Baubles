@@ -16,8 +16,8 @@ import net.minecraftforge.event.entity.living.PotionEvent.PotionApplicableEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
 
 public class PotionNegation {
-	public static interface IPotionNegateItem {
-		public List<String> getCureEffects();
+	public interface IPotionNegateItem {
+		List<String> getCureEffects();
 	}
 	
 	public static void negatePotion(Entity entity, Potion potion) {

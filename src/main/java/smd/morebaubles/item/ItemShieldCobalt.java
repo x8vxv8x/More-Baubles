@@ -10,6 +10,7 @@ import com.google.common.collect.Multimap;
 import baubles.api.BaubleType;
 import baubles.api.IBauble;
 import baubles.api.render.IRenderBauble;
+import smd.morebaubles.Tags;
 import smd.morebaubles.morebaubles;
 import smd.morebaubles.baubleeffect.BaubleAttributeModifierHandler;
 import smd.morebaubles.client.layer.IRenderObject;
@@ -67,7 +68,7 @@ public class ItemShieldCobalt extends ItemShield
 	public ItemShieldCobalt(String name) {
 		super();
 		this.setRegistryName(name);
-		this.setTranslationKey(morebaubles.MODID + "." + name);
+		this.setTranslationKey(Tags.MOD_ID + "." + name);
 		this.setCreativeTab(morebaubles.TAB);
 		this.setMaxDamage(336 * 3);
 		morebaubles.registryHelper.addItemModel(this);
@@ -127,9 +128,9 @@ public class ItemShieldCobalt extends ItemShield
 					);
 
 					if (enumhand == EnumHand.MAIN_HAND) {
-						player.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, (ItemStack) null);
+						player.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, null);
 					} else {
-						player.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, (ItemStack) null);
+						player.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, null);
 					}
 
 					stack = null;
@@ -185,7 +186,7 @@ public class ItemShieldCobalt extends ItemShield
 			stack.getTagCompound().setInteger("HideFlags", 2);
 		}
 		if (stack.getItemDamage() >= stack.getMaxDamage()) {
-			tooltip.add(I18n.translateToLocal(morebaubles.MODID + ".broken"));
+			tooltip.add(I18n.translateToLocal(Tags.MOD_ID + ".broken"));
 		}
 		tooltip.add(I18n.translateToLocal(this.getTranslationKey() + ".tooltip.0"));
 		if (GuiScreen.isShiftKeyDown()) {
@@ -195,11 +196,11 @@ public class ItemShieldCobalt extends ItemShield
 					&& ((IPhantomInkable) stack.getItem()).hasPhantomInk(stack)) {
 				tooltip.add(
 						morebaubles.proxy
-								.translate(morebaubles.MODID + ".misc.hasPhantomInk")
+								.translate(Tags.MOD_ID + ".misc.hasPhantomInk")
 				);
 			}
 		} else {
-			tooltip.add(I18n.translateToLocal(morebaubles.MODID + ".moreinfo"));
+			tooltip.add(I18n.translateToLocal(Tags.MOD_ID + ".moreinfo"));
 		}
 
 	}

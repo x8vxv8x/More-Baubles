@@ -1,7 +1,7 @@
 package smd.morebaubles.baubleeffect;
 
 public interface IJumpBoost {
-	public float getJumpBoost();
+	float getJumpBoost();
 
-	public float getFallResist();
+	float getFallResist();
 }

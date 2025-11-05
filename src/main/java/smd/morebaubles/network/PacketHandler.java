@@ -1,5 +1,6 @@
 package smd.morebaubles.network;
 
+import smd.morebaubles.Tags;
 import smd.morebaubles.morebaubles;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
@@ -9,7 +10,7 @@ import net.minecraftforge.fml.relauncher.Side;
 public class PacketHandler {
 	private static int id = 0;
 
-	public static enum HandlerIds {
+	public enum HandlerIds {
 		SYNC_SERVER_DATA(6),
 		REFORGE(0),
 		WORMHOLE(1),
@@ -27,7 +28,7 @@ public class PacketHandler {
 	}
 
 	public static final SimpleNetworkWrapper INSTANCE = NetworkRegistry.INSTANCE
-			.newSimpleChannel(morebaubles.MODID);
+			.newSimpleChannel(Tags.MOD_ID);
 
 	public static void registerMessages() {
 		INSTANCE.registerMessage(HandlerNBTPacket.class, NBTPacket.class, id++, Side.CLIENT);

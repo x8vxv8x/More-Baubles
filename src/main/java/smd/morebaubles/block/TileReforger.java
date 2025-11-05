@@ -18,7 +18,7 @@ import net.minecraftforge.items.ItemStackHandler;
 
 public class TileReforger extends GenericTileEntity {
 
-	private ItemStackHandler stackHandler = new ItemStackHandler(1) {
+	private final ItemStackHandler stackHandler = new ItemStackHandler(1) {
 		@Override
 		protected void onContentsChanged(int slot) {
 			TileReforger.this.markDirty();

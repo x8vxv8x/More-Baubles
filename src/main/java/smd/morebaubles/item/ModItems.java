@@ -1,8 +1,10 @@
 package smd.morebaubles.item;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 import baubles.api.BaubleType;
+import smd.morebaubles.Tags;
 import smd.morebaubles.morebaubles;
 import smd.morebaubles.item.armor.ItemArmorBB;
 import smd.morebaubles.item.base.AGenericItemBauble;
@@ -110,7 +112,7 @@ public class ModItems {
 		morebaubles.registryHelper
 				.addItem(shieldObsidian = new ItemShieldObsidian("shieldObsidian"));
 		ArmorMaterial sunglassesMat = EnumHelper.addArmorMaterial("sunglasses",
-				morebaubles.MODID+":sunglasses", 25, new int[] { 0, 0, 0, 0 }, 0,
+				Tags.MOD_ID+":sunglasses", 25, new int[] { 0, 0, 0, 0 }, 0,
 				SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
 		morebaubles.registryHelper
 				.addItem(trinketMagicLenses = new ItemSunglasses(sunglassesMat));
@@ -128,7 +130,7 @@ public class ModItems {
 
 		morebaubles.registryHelper
 				.addItem(trinketShulkerHeart = new ItemTrinketPotionCharm("trinketShulkerHeart",
-						Arrays.asList("minecraft:levitation")));
+                        Collections.singletonList("minecraft:levitation")));
 
 		// TODO add soulsand slowness negation
 		morebaubles.registryHelper
@@ -151,7 +153,7 @@ public class ModItems {
 
 		morebaubles.registryHelper
 				.addItem(trinketBezoar = new ItemTrinketPotionCharm("trinketBezoar",
-						Arrays.asList("minecraft:poison")));
+                        Collections.singletonList("minecraft:poison")));
 		morebaubles.registryHelper.addItem(
 				enderDragonScale = new GenericItemBB("enderDragonScale", morebaubles.TAB));
 		morebaubles.registryHelper
@@ -159,7 +161,7 @@ public class ModItems {
 						morebaubles.TAB));
 		morebaubles.registryHelper.addItem(
 				trinketBlackDragonScale = new ItemTrinketPotionCharm("trinketBlackDragonScale",
-						Arrays.asList("minecraft:wither")));
+                        Collections.singletonList("minecraft:wither")));
 
 		morebaubles.registryHelper.addItem(
 				trinketMixedDragonScale = new ItemTrinketPotionCharm("trinketMixedDragonScale",
@@ -175,15 +177,13 @@ public class ModItems {
 								"minecraft:wither"));
 			}
 
-//			@Override
-//			public boolean hasEffect(ItemStack stack) {
-//				return true;
-//			}
-//
-//			@Override
-//			public int getEnchantEffectColor(ItemStack arg0) {
-//				return 0x8f62cc;
-//			}
+			@Override
+			public void onWornTick(ItemStack stack, EntityLivingBase player) {
+				if (player instanceof EntityPlayer) {
+					player.isInWeb = false;
+				}
+				super.onWornTick(stack, player);
+			}
 		}
 		morebaubles.registryHelper.addItem(trinketAnkhCharm = new ItemTrinketAnkh());
 		morebaubles.registryHelper.addItem(shieldAnkh = new ItemShieldAnkh("shieldAnkh"));
@@ -213,7 +213,7 @@ public class ModItems {
 		// TODO phantom ink doesn't work on gold crown?
 		// gold, but with durability between iron and diamond
 		ArmorMaterial crownGoldMat = EnumHelper.addArmorMaterial("crownGold",
-				morebaubles.MODID+":crownGold", 25, new int[] { 0, 0, 0, 2 }, 25,
+				Tags.MOD_ID+":crownGold", 25, new int[] { 0, 0, 0, 2 }, 25,
 				SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0.0F);
 		crownGoldMat.setRepairItem(new ItemStack(Items.GOLD_INGOT));
 		morebaubles.registryHelper.addItem(crownGold = new ItemArmorBB("crownGold",

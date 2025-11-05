@@ -2,6 +2,7 @@ package smd.morebaubles.item;
 
 import baubles.api.BaubleType;
 import baubles.api.render.IRenderBauble;
+import smd.morebaubles.Tags;
 import smd.morebaubles.morebaubles;
 import smd.morebaubles.item.base.AGenericItemBauble;
 import smd.morebaubles.potion.ModPotions;
@@ -22,7 +23,7 @@ public class ItemAmuletSin extends AGenericItemBauble implements IRenderBauble, 
 	public ItemAmuletSin(String name, String textureName) {
 		super(name, morebaubles.TAB);
 		texture = new ResourceLocation(
-				morebaubles.MODID,
+				Tags.MOD_ID,
 				morebaubles.ARMOR_TEXTURE_PATH + textureName + ".png"
 		);
 	}

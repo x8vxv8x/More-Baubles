@@ -2,6 +2,7 @@ package smd.morebaubles.item;
 
 import baubles.api.BaubleType;
 import baubles.api.render.IRenderBauble;
+import smd.morebaubles.Tags;
 import smd.morebaubles.morebaubles;
 import smd.morebaubles.item.base.AGenericItemBauble;
 import smd.morebaubles.util.ItemUtil;
@@ -20,7 +21,7 @@ import vazkii.botania.api.item.IPhantomInkable;
 public class ItemAmuletCross extends AGenericItemBauble implements IRenderBauble, IPhantomInkable {
 	public static final int RESIST_TIME = 36;
 	public static final ResourceLocation texture = new ResourceLocation(
-			morebaubles.MODID,
+			Tags.MOD_ID,
 			morebaubles.ARMOR_TEXTURE_PATH + "amulet_cross.png"
 	);
 	@SideOnly(Side.CLIENT)

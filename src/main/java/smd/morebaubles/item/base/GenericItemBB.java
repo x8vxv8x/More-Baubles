@@ -3,6 +3,7 @@ package smd.morebaubles.item.base;
 import java.util.List;
 
 import baubles.api.render.IRenderBauble.RenderType;
+import smd.morebaubles.Tags;
 import smd.morebaubles.morebaubles;
 import smd.morebaubles.client.layer.IRenderObject;
 import javax.annotation.Nullable;
@@ -30,23 +31,11 @@ public class GenericItemBB extends Item implements IRenderObject {
 	}
 
 	public GenericItemBB(String name, CreativeTabs tab, boolean configCreativeOnly) {
-		this.setRegistryName(new ResourceLocation(morebaubles.MODID, name));
-		this.setTranslationKey(morebaubles.MODID + "." + name);
+		this.setRegistryName(new ResourceLocation(Tags.MOD_ID, name));
+		this.setTranslationKey(Tags.MOD_ID + "." + name);
 		if (tab != null) {
 			this.setCreativeTab(tab);
 		}
-		//		if (configCreativeOnly) {
-		//			Property unsynced = morebaubles.config.addPropBoolean(
-		//					getRegistryName()+".creativeOnly", "Items",
-		//					"Whether or not "+getRegistryName()
-		//							+" is creative only. If enabled, recipes and loot tables for this item will not be added, and the item will have a creative only tooltip added.",
-		//					false, EnumPropSide.SYNCED);
-		//			unsynced.setRequiresMcRestart(true);
-		//			creativeOnly = morebaubles.config
-		//					.getSyncedProperty(getRegistryName()+".creativeOnly");
-		//		} else {
-		//			creativeOnly = null;
-		//		}
 	}
 
 	@SuppressWarnings("deprecation")
@@ -67,7 +56,7 @@ public class GenericItemBB extends Item implements IRenderObject {
 			}
 		}
 		//		if (creativeOnly!=null&&creativeOnly.getBoolean()) {
-		//			tooltip.add(morebaubles.proxy.translate(morebaubles.MODID+".creativeonly"));
+		//			tooltip.add(morebaubles.proxy.translate(Tags.MOD_ID+".creativeonly"));
 		//		}
 	}
 

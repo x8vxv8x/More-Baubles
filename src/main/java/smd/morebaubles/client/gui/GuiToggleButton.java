@@ -1,5 +1,6 @@
 package smd.morebaubles.client.gui;
 
+import smd.morebaubles.Tags;
 import smd.morebaubles.morebaubles;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
@@ -26,19 +27,19 @@ public class GuiToggleButton extends GuiBetterButton {
 		super(buttonId, x, y, 16, 16, "");
 		pinned = enabled;
 		if (type.equals("pin")) {
-			off = new ResourceLocation(morebaubles.MODID, "textures/gui/button/pin_off.png");
-			offToOn = new ResourceLocation(morebaubles.MODID,
+			off = new ResourceLocation(Tags.MOD_ID, "textures/gui/button/pin_off.png");
+			offToOn = new ResourceLocation(Tags.MOD_ID,
 					"textures/gui/button/pin_offtoon.png");
-			on = new ResourceLocation(morebaubles.MODID, "textures/gui/button/pin_on.png");
-			onToOff = new ResourceLocation(morebaubles.MODID,
+			on = new ResourceLocation(Tags.MOD_ID, "textures/gui/button/pin_on.png");
+			onToOff = new ResourceLocation(Tags.MOD_ID,
 					"textures/gui/button/pin_ontooff.png");
 		} else if (type.equals("visible")) {
-			off = new ResourceLocation(morebaubles.MODID,
+			off = new ResourceLocation(Tags.MOD_ID,
 					"textures/gui/button/visible_off.png");
-			offToOn = new ResourceLocation(morebaubles.MODID,
+			offToOn = new ResourceLocation(Tags.MOD_ID,
 					"textures/gui/button/visible_off_hover.png");
-			on = new ResourceLocation(morebaubles.MODID, "textures/gui/button/visible_on.png");
-			onToOff = new ResourceLocation(morebaubles.MODID,
+			on = new ResourceLocation(Tags.MOD_ID, "textures/gui/button/visible_on.png");
+			onToOff = new ResourceLocation(Tags.MOD_ID,
 					"textures/gui/button/visible_on_hover.png");
 		}
 	}

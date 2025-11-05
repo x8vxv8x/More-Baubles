@@ -6,8 +6,7 @@ import net.minecraft.nbt.NBTTagCompound;
 public class ItemUtil {
 	public static boolean hasPhantomInk(ItemStack stack) {
 		NBTTagCompound tag = stack.getTagCompound();
-		return tag==null ? false
-				: tag.hasKey("modelHidden") ? tag.getBoolean("modelHidden") : false;
+		return tag != null && tag.hasKey("modelHidden") && tag.getBoolean("modelHidden");
 	}
 
 	public static void setPhantomInk(ItemStack stack, boolean ink) {

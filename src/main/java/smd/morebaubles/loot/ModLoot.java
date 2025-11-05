@@ -3,6 +3,7 @@ package smd.morebaubles.loot;
 import java.util.ArrayList;
 import java.util.List;
 
+import smd.morebaubles.Tags;
 import smd.morebaubles.morebaubles;
 import smd.morebaubles.ModConfig;
 import smd.morebaubles.item.ModItems;
@@ -69,45 +70,45 @@ public class ModLoot {
 						new LootEntry[] {
 								new LootEntryItem(ModItems.trinketApple, 1, 1, new LootFunction[0],
 										new LootCondition[] { new KilledByPlayer(false) },
-										morebaubles.MODID+":apple") },
+										Tags.MOD_ID+":apple") },
 						new LootCondition[] { new RandomChance(0.025F) }, new RandomValueRange(1),
-						new RandomValueRange(0), morebaubles.MODID+"_husk");
+						new RandomValueRange(0), Tags.MOD_ID+"_husk");
 				event.getTable().addPool(table);
 			} else if (event.getName().equals(LootTableList.ENTITIES_ELDER_GUARDIAN)) {
 				LootPool table = new LootPool(
 						new LootEntry[] { new LootEntryItem(ModItems.trinketVitamins, 1, 1,
 								new LootFunction[0],
 								new LootCondition[] { new KilledByPlayer(false) },
-								morebaubles.MODID+":vitamins") },
+								Tags.MOD_ID+":vitamins") },
 						new LootCondition[0], new RandomValueRange(1), new RandomValueRange(0),
-						morebaubles.MODID+"_elder_guardian");
+						Tags.MOD_ID+"_elder_guardian");
 				event.getTable().addPool(table);
 			} else if (event.getName().equals(LootTableList.ENTITIES_STRAY)) {
 				LootPool table = new LootPool(
 						new LootEntry[] { new LootEntryItem(ModItems.ringOverclocking, 1, 1,
 								new LootFunction[0],
 								new LootCondition[] { new KilledByPlayer(false) },
-								morebaubles.MODID+":vitamins") },
+								Tags.MOD_ID+":vitamins") },
 						new LootCondition[] { new RandomChance(0.03F) }, new RandomValueRange(1),
-						new RandomValueRange(0), morebaubles.MODID+"_stray");
+						new RandomValueRange(0), Tags.MOD_ID+"_stray");
 				event.getTable().addPool(table);
 			} else if (event.getName().equals(LootTableList.ENTITIES_SHULKER)) {
 				LootPool table = new LootPool(
 						new LootEntry[] { new LootEntryItem(ModItems.trinketShulkerHeart, 1, 1,
 								new LootFunction[0],
 								new LootCondition[] { new KilledByPlayer(false) },
-								morebaubles.MODID+":shulkerHeart") },
+								Tags.MOD_ID+":shulkerHeart") },
 						new LootCondition[] { new RandomChance(0.1F) }, new RandomValueRange(1),
-						new RandomValueRange(0), morebaubles.MODID+"_shulker");
+						new RandomValueRange(0), Tags.MOD_ID+"_shulker");
 				event.getTable().addPool(table);
 			} else if (event.getName().equals(LootTableList.ENTITIES_CAVE_SPIDER)) {
 				LootPool table = new LootPool(
 						new LootEntry[] {
 								new LootEntryItem(ModItems.trinketBezoar, 1, 1, new LootFunction[0],
 										new LootCondition[] { new KilledByPlayer(false) },
-										morebaubles.MODID+":bezoar") },
+										Tags.MOD_ID+":bezoar") },
 						new LootCondition[] { new RandomChance(0.05F) }, new RandomValueRange(1),
-						new RandomValueRange(0), morebaubles.MODID+"_cave_spider");
+						new RandomValueRange(0), Tags.MOD_ID+"_cave_spider");
 				event.getTable().addPool(table);
 			}
 		}
@@ -136,12 +137,12 @@ public class ModLoot {
 							new LootCondition[0],
 							ModItems.phantomPrism.getRegistryName().toString()));
 					entries.add(new LootEntryTable(
-							new ResourceLocation(morebaubles.MODID, "flare_gun"), 10, 0,
+							new ResourceLocation(Tags.MOD_ID, "flare_gun"), 10, 0,
 							new LootCondition[0], ModItems.flareGun.getRegistryName().toString()));
 					LootPool pool = new LootPool(entries.toArray(new LootEntry[0]),
 							new LootCondition[] { new RandomChance((float) baseRate) },
 							new RandomValueRange(1), new RandomValueRange(0),
-							morebaubles.MODID+"_dungeon");
+							Tags.MOD_ID+"_dungeon");
 					event.getTable().addPool(pool);
 				}
 				double potionRate = dungeon_potionRate.getDouble(0.75D);
@@ -150,17 +151,17 @@ public class ModLoot {
 					List<LootEntry> entries2 = new ArrayList<>();
 					entries2.add(
 							new LootEntryItem(ModItems.potionRecall, 50, 0, new LootFunction[0],
-									new LootCondition[0], morebaubles.MODID+":potionrecall"));
+									new LootCondition[0], Tags.MOD_ID+":potionrecall"));
 					if (wormholeEnabled.getBoolean(true)) {
 						entries2.add(new LootEntryItem(ModItems.potionWormhole, 25, 0,
 								new LootFunction[0], new LootCondition[0],
-								morebaubles.MODID+":potionwormhole"));
+								Tags.MOD_ID+":potionwormhole"));
 					}
 					entries2.add(new LootEntryEmpty(25, 0, new LootCondition[0], "empty"));
 					LootPool pool2 = new LootPool(entries2.toArray(new LootEntry[0]),
 							new LootCondition[] { new RandomChance((float) potionRate) },
 							new RandomValueRange(1, 6), new RandomValueRange(0),
-							morebaubles.MODID+"_dungeon_potions");
+							Tags.MOD_ID+"_dungeon_potions");
 					event.getTable().addPool(pool2);
 				}
 			} else if (eventName.equals("minecraft:chests/nether_bridge")) {
@@ -181,7 +182,7 @@ public class ModLoot {
 					LootPool pool = new LootPool(entries.toArray(new LootEntry[0]),
 							new LootCondition[] { new RandomChance((float) baseRate) },
 							new RandomValueRange(1), new RandomValueRange(0),
-							morebaubles.MODID+"_nether_bridge");
+							Tags.MOD_ID+"_nether_bridge");
 					event.getTable().addPool(pool);
 				}
 
@@ -190,21 +191,21 @@ public class ModLoot {
 				if (miscRate>0) {
 					List<LootEntry> entries2 = new ArrayList<>();
 					entries2.add(new LootEntryItem(ModItems.potionRecall, 5, 0, new LootFunction[0],
-							new LootCondition[0], morebaubles.MODID+":potionrecall"));
+							new LootCondition[0], Tags.MOD_ID+":potionrecall"));
 					if (wormholeEnabled.getBoolean(true)) {
 //						morebaubles.logger.info("wormhole enabled");
 						entries2.add(new LootEntryItem(ModItems.potionWormhole, 25, 0,
 								new LootFunction[0], new LootCondition[0],
-								morebaubles.MODID+":potionwormhole"));
+								Tags.MOD_ID+":potionwormhole"));
 					}
 //					entries2.add(new LootEntryItem(ModItems.goldRing, 25, 0, new LootFunction[0],
-//							new LootCondition[0], morebaubles.MODID+":goldring"));
+//							new LootCondition[0], Tags.MOD_ID+":goldring"));
 					entries2.add(new LootEntryItem(ModItems.ironRing, 25, 0, new LootFunction[0],
-							new LootCondition[0], morebaubles.MODID+":ironring"));
+							new LootCondition[0], Tags.MOD_ID+":ironring"));
 					LootPool pool2 = new LootPool(entries2.toArray(new LootEntry[0]),
 							new LootCondition[] { new RandomChance((float) miscRate) },
 							new RandomValueRange(1), new RandomValueRange(0),
-							morebaubles.MODID+"_nether_bridge_2");
+							Tags.MOD_ID+"_nether_bridge_2");
 					event.getTable().addPool(pool2);
 				}
 			}

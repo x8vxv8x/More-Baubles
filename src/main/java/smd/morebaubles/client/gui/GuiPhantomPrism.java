@@ -1,5 +1,6 @@
 package smd.morebaubles.client.gui;
 
+import smd.morebaubles.Tags;
 import smd.morebaubles.morebaubles;
 import smd.morebaubles.container.ContainerPhantomPrism;
 import smd.morebaubles.network.NBTPacket;
@@ -16,9 +17,9 @@ public class GuiPhantomPrism extends GuiContainer {
 	private int guiLeft;
 	private int guiTop;
 
-	private ContainerPhantomPrism container;
+	private final ContainerPhantomPrism container;
 
-	private static final ResourceLocation background = new ResourceLocation(morebaubles.MODID,
+	private static final ResourceLocation background = new ResourceLocation(Tags.MOD_ID,
 			"textures/gui/phantom_prism.png");
 
 	public GuiPhantomPrism(ContainerPhantomPrism container) {

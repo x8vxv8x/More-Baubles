@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import baubles.api.IBauble;
+import smd.morebaubles.Tags;
 import smd.morebaubles.morebaubles;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
@@ -32,7 +33,7 @@ public abstract class AGenericItemBauble extends GenericItemBB implements IBaubl
 //		if (stack.hasTagCompound()&&stack.getTagCompound().hasKey("baubleModifier")) {
 //			String mod = stack.getTagCompound().getString("baubleModifier");
 //			if (!mod.equals("none")) {
-//				name = I18n.translateToLocal(morebaubles.MODID+".modifier."+mod+".name")+" "
+//				name = I18n.translateToLocal(Tags.MOD_ID+".modifier."+mod+".name")+" "
 //						+name;
 //			}
 //		}
@@ -47,13 +48,13 @@ public abstract class AGenericItemBauble extends GenericItemBB implements IBaubl
 //		if (stack.hasTagCompound()&&stack.getTagCompound().hasKey("baubleModifier")) {
 //			String mod = stack.getTagCompound().getString("baubleModifier");
 //			if (!mod.equals("none")) {
-//				tooltip.add(I18n.translateToLocal(morebaubles.MODID+".modifier."+mod+".info"));
+//				tooltip.add(I18n.translateToLocal(Tags.MOD_ID+".modifier."+mod+".info"));
 //			}
 //		}
 		if (stack.getItem() instanceof IPhantomInkable
 				&&((IPhantomInkable) stack.getItem()).hasPhantomInk(stack)) {
 			tooltip.add(
-					morebaubles.proxy.translate(morebaubles.MODID+".misc.hasPhantomInk"));
+					morebaubles.proxy.translate(Tags.MOD_ID+".misc.hasPhantomInk"));
 		}
 	}
 

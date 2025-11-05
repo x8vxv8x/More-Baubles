@@ -74,7 +74,7 @@ public class ContainerWormhole extends Container {
 
 		for (int i = pinned.size()-1; i>=0; i--) {
 			IWormholeTarget target;
-			if (pinnedFound.containsKey((Integer) i)) {
+			if (pinnedFound.containsKey(i)) {
 				target = pinnedFound.get(i);
 			} else {
 				target = pinned.get(i);

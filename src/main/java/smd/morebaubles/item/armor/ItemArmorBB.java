@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import smd.morebaubles.Tags;
 import smd.morebaubles.morebaubles;
 import smd.morebaubles.util.ItemUtil;
 import net.minecraft.client.gui.GuiScreen;
@@ -34,8 +35,8 @@ public class ItemArmorBB extends ItemArmor implements IPhantomInkable {
 		super(material, 0, slot);
 		this.modelName = modelName;
 		setCreativeTab(tab);
-		setTranslationKey(morebaubles.MODID+"."+name);
-		setRegistryName(new ResourceLocation(morebaubles.MODID, name));
+		setTranslationKey(Tags.MOD_ID+"."+name);
+		setRegistryName(new ResourceLocation(Tags.MOD_ID, name));
 	}
 
 	@Override

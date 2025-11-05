@@ -4,17 +4,17 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 
 public interface IWormholeTarget {
-	public String getName();
+	String getName();
 
-	public boolean teleportPlayerTo(EntityPlayer player);
+	boolean teleportPlayerTo(EntityPlayer player);
 
-	public NBTTagCompound toNBT();
+	NBTTagCompound toNBT();
 
-	public void fromNBT(NBTTagCompound tag);
+	void fromNBT(NBTTagCompound tag);
 
-	public boolean isEqual(IWormholeTarget other);
+	boolean isEqual(IWormholeTarget other);
 
-	public boolean isEnabled();
+	boolean isEnabled();
 
-	public void setEnabled(boolean enabled);
+	void setEnabled(boolean enabled);
 }

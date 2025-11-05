@@ -1,6 +1,7 @@
 package smd.morebaubles.item;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import javax.annotation.Nullable;
@@ -8,6 +9,7 @@ import javax.annotation.Nullable;
 import baubles.api.BaubleType;
 import baubles.api.IBauble;
 import baubles.api.render.IRenderBauble;
+import smd.morebaubles.Tags;
 import smd.morebaubles.morebaubles;
 import smd.morebaubles.baubleeffect.PotionNegation;
 import smd.morebaubles.baubleeffect.PotionNegation.IPotionNegateItem;
@@ -31,7 +33,7 @@ import vazkii.botania.api.item.IPhantomInkable;
 
 public class ItemSunglasses extends ItemArmorBB
 		implements IBauble/* , ICustomEnchantColor */, ISpecialArmor, IRenderBauble, IPotionNegateItem, IRenderObject {
-	private static final ResourceLocation texture = new ResourceLocation(morebaubles.MODID,
+	private static final ResourceLocation texture = new ResourceLocation(Tags.MOD_ID,
 			"textures/models/armor/sunglasses_layer_1.png");
 
 	public ItemSunglasses(ArmorMaterial mat) {
@@ -56,12 +58,12 @@ public class ItemSunglasses extends ItemArmorBB
 
 	@Override
 	public void onWornTick(ItemStack stack, EntityLivingBase player) {
-		PotionNegation.negatePotion(player, Arrays.asList("minecraft:blindness"));
+		PotionNegation.negatePotion(player, Collections.singletonList("minecraft:blindness"));
 	}
 
 	@Override
 	public void onArmorTick(World world, EntityPlayer player, ItemStack armor) {
-		PotionNegation.negatePotion(player, Arrays.asList("minecraft:blindness"));
+		PotionNegation.negatePotion(player, Collections.singletonList("minecraft:blindness"));
 	}
 
 	@Override
@@ -158,12 +160,12 @@ public class ItemSunglasses extends ItemArmorBB
 		if (stack.getItem() instanceof IPhantomInkable
 				&&((IPhantomInkable) stack.getItem()).hasPhantomInk(stack)) {
 			tooltip.add(
-					morebaubles.proxy.translate(morebaubles.MODID+".misc.hasPhantomInk"));
+					morebaubles.proxy.translate(Tags.MOD_ID+".misc.hasPhantomInk"));
 		}
 	}
 
 	@Override
 	public List<String> getCureEffects() {
-		return Arrays.asList("minecraft:blindness");
+		return Collections.singletonList("minecraft:blindness");
 	}
 }

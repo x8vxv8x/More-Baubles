@@ -16,8 +16,8 @@ import net.minecraftforge.fml.common.Loader;
 
 public class BountfulRenderLayer implements LayerRenderer<EntityPlayer> {
 
-	private boolean isSlim;
-	private RenderPlayer renderer;
+	private final boolean isSlim;
+	private final RenderPlayer renderer;
 
 	public BountfulRenderLayer(boolean slim, RenderPlayer render) {
 		isSlim = slim;

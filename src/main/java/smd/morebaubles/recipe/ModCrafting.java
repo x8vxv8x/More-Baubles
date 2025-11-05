@@ -1,5 +1,6 @@
 package smd.morebaubles.recipe;
 
+import smd.morebaubles.Tags;
 import smd.morebaubles.morebaubles;
 import smd.morebaubles.ModConfig;
 import smd.morebaubles.block.ModBlocks;
@@ -59,25 +60,25 @@ public class ModCrafting {
 		
 		if (ModConfig.recipesEnabled.getBoolean(true)) {
 //		r.register(new ShapedOreRecipe(
-//				new ResourceLocation(morebaubles.MODID, "ringgold"), 
+//				new ResourceLocation(Tags.MOD_ID, "ringgold"), 
 //				ModItems.goldRing, new String[] {
 //				" g ",
 //				"g g",
 //				" g " },
 //				'g', "ingotGold")
-//				.setRegistryName(new ResourceLocation(morebaubles.MODID, "ringgold")));
+//				.setRegistryName(new ResourceLocation(Tags.MOD_ID, "ringgold")));
 		r.register(new ShapedOreRecipe(
-				new ResourceLocation(morebaubles.MODID, "ringiron"), 
+				new ResourceLocation(Tags.MOD_ID, "ringiron"),
 				ModItems.ironRing, new String[] {
 				" i ",
 				"i i",
 				" i " },
 				'i', "ingotIron")
-				.setRegistryName(new ResourceLocation(morebaubles.MODID, "ringiron")));
+				.setRegistryName(new ResourceLocation(Tags.MOD_ID, "ringiron")));
 		
 		if (runeSummer && runeAutumn && runeWinter && runeSpring) {
 			r.register(new ShapedOreRecipe(
-					new ResourceLocation(morebaubles.MODID, "trinketankhcharm"), 
+					new ResourceLocation(Tags.MOD_ID, "trinketankhcharm"), 
 					ModItems.trinketAnkhCharm, new String[] {
 					"SlA",
 					"fsa",
@@ -91,10 +92,10 @@ public class ModCrafting {
 					'A', "runeAutumnB",
 					'W', "runeWinterB",
 					'P', "runeSpringB")
-					.setRegistryName(new ResourceLocation(morebaubles.MODID, "trinketankhcharm")));
+					.setRegistryName(new ResourceLocation(Tags.MOD_ID, "trinketankhcharm")));
 		} else {
 			r.register(new ShapedOreRecipe(
-					new ResourceLocation(morebaubles.MODID, "trinketankhcharm"), 
+					new ResourceLocation(Tags.MOD_ID, "trinketankhcharm"), 
 					ModItems.trinketAnkhCharm, new String[] {
 					"glg",
 					"fsa",
@@ -105,15 +106,15 @@ public class ModCrafting {
 					'v', ModItems.trinketVitamins,
 					'l', ModItems.trinketMagicLenses,
 					'g', "ingotGold")
-					.setRegistryName(new ResourceLocation(morebaubles.MODID, "trinketankhcharm")));
+					.setRegistryName(new ResourceLocation(Tags.MOD_ID, "trinketankhcharm")));
 		}
 		
-		r.register(new ShapelessOreRecipe(new ResourceLocation(morebaubles.MODID, "reforger"), 
+		r.register(new ShapelessOreRecipe(new ResourceLocation(Tags.MOD_ID, "reforger"), 
 				ModBlocks.reforger, 
 				Item.getItemFromBlock(Blocks.CRAFTING_TABLE),
 				Item.getItemFromBlock(Blocks.ANVIL),
 				Items.LAVA_BUCKET)
-				.setRegistryName(new ResourceLocation(morebaubles.MODID, "reforger")));
+				.setRegistryName(new ResourceLocation(Tags.MOD_ID, "reforger")));
 		
 		NBTTagCompound temp = new NBTTagCompound();
 		temp.setString("Potion", "minecraft:fire_resistance");
@@ -133,7 +134,7 @@ public class ModCrafting {
 		potionFireResLingerLong.setTagCompound(temp.copy());
 
 		r.register(new ShapedOreRecipe(
-				new ResourceLocation(morebaubles.MODID, "trinketobsidianskull"),
+				new ResourceLocation(Tags.MOD_ID, "trinketobsidianskull"),
 				ModItems.trinketObsidianSkull, new String[] {
 				"oro", 
 				"psp", 
@@ -146,10 +147,10 @@ public class ModCrafting {
 						potionFireRes, potionFireResSplash, 
 						potionFireResLinger, potionFireResLong, 
 						potionFireResSplashLong, potionFireResLingerLong))
-				.setRegistryName(new ResourceLocation(morebaubles.MODID, "trinketobsidianskull")));
+				.setRegistryName(new ResourceLocation(Tags.MOD_ID, "trinketobsidianskull")));
 		if (gaiaSpirit) {
 			r.register(new ShapedOreRecipe(
-					new ResourceLocation(morebaubles.MODID, "trinketblackdragonscale"),
+					new ResourceLocation(Tags.MOD_ID, "trinketblackdragonscale"),
 					ModItems.trinketBlackDragonScale, new String[] {
 					" e ",
 					"nbg" },
@@ -157,10 +158,10 @@ public class ModCrafting {
 					'e', "scaleDragonEnder",
 					'b', ModItems.brokenBlackDragonScale,
 					'g', "eternalLifeEssence")
-					.setRegistryName(new ResourceLocation(morebaubles.MODID, "trinketblackdragonscale")));
+					.setRegistryName(new ResourceLocation(Tags.MOD_ID, "trinketblackdragonscale")));
 		} else {
 			r.register(new ShapedOreRecipe(
-					new ResourceLocation(morebaubles.MODID, "trinketblackdragonscale"),
+					new ResourceLocation(Tags.MOD_ID, "trinketblackdragonscale"),
 					ModItems.trinketBlackDragonScale, new String[] {
 					"n",
 					"e",
@@ -168,10 +169,10 @@ public class ModCrafting {
 					'n', Items.NETHER_STAR,
 					'e', "scaleDragonEnder",
 					'b', ModItems.brokenBlackDragonScale)
-					.setRegistryName(new ResourceLocation(morebaubles.MODID, "trinketblackdragonscale")));
+					.setRegistryName(new ResourceLocation(Tags.MOD_ID, "trinketblackdragonscale")));
 		}
 		r.register(new ShapedOreRecipe(
-				new ResourceLocation(morebaubles.MODID, "ringflywheel"), 
+				new ResourceLocation(Tags.MOD_ID, "ringflywheel"), 
 				ModItems.ringFlywheel, new String[] {
 				"scs", 
 				"crc",
@@ -179,9 +180,9 @@ public class ModCrafting {
 				'c', copperIngot ? "ingotCopper" : "ingotGold", 
 				's', steelIngot ? "ingotSteel" : "ingotIron",
 				'r', "ringIron")
-				.setRegistryName(new ResourceLocation(morebaubles.MODID, "ringflywheel")));
+				.setRegistryName(new ResourceLocation(Tags.MOD_ID, "ringflywheel")));
 		r.register(new ShapedOreRecipe(
-				new ResourceLocation(morebaubles.MODID, "ringflywheeladvanced"), 
+				new ResourceLocation(Tags.MOD_ID, "ringflywheeladvanced"), 
 				ModItems.ringFlywheelAdvanced, new String[] {
 				" s ", 
 				"iri",
@@ -190,9 +191,9 @@ public class ModCrafting {
 				'e', Items.ENDER_EYE,
 				's', "scaleDragonEnder",
 				'r', ModItems.ringFlywheel)
-				.setRegistryName(new ResourceLocation(morebaubles.MODID, "ringflywheeladvanced")));
+				.setRegistryName(new ResourceLocation(Tags.MOD_ID, "ringflywheeladvanced")));
 		r.register(new ShapedOreRecipe(
-				new ResourceLocation(morebaubles.MODID, "amuletSinGluttony"),
+				new ResourceLocation(Tags.MOD_ID, "amuletSinGluttony"),
 				ModItems.sinPendantGluttony, new String[] {
 				"c",
 				"a",
@@ -200,19 +201,19 @@ public class ModCrafting {
 				'c', runeGluttony ? "runeGluttonyB" : Items.CAKE,
 				'a', ModItems.sinPendantEmpty,
 				'g', new ItemStack(Items.GOLDEN_APPLE, 1, 0))
-				.setRegistryName(new ResourceLocation(morebaubles.MODID, "amuletSinGluttony")));
+				.setRegistryName(new ResourceLocation(Tags.MOD_ID, "amuletSinGluttony")));
 		r.register(new ShapedOreRecipe(
-				new ResourceLocation(morebaubles.MODID, "crownGold"),
+				new ResourceLocation(Tags.MOD_ID, "crownGold"),
 				ModItems.crownGold, new String[] {
 				" g ",
 				"iii",
 				"i i" },
 				'i', "ingotGold",
 				'g', ruby ? "gemRuby" : "gemDiamond")
-				.setRegistryName(new ResourceLocation(morebaubles.MODID, "crownGold")));
+				.setRegistryName(new ResourceLocation(Tags.MOD_ID, "crownGold")));
 		if (runePride) {
 			r.register(new ShapedOreRecipe(
-					new ResourceLocation(morebaubles.MODID, "amuletSinPride"),
+					new ResourceLocation(Tags.MOD_ID, "amuletSinPride"),
 					ModItems.sinPendantPride, new String[] {
 					"r",
 					"a",
@@ -220,20 +221,20 @@ public class ModCrafting {
 					'r', "runePrideB",
 					'c', ModItems.crownGold,
 					'a', ModItems.sinPendantEmpty)
-					.setRegistryName(new ResourceLocation(morebaubles.MODID, "amuletSinPride")));
+					.setRegistryName(new ResourceLocation(Tags.MOD_ID, "amuletSinPride")));
 		} else {
 			r.register(new ShapedOreRecipe(
-					new ResourceLocation(morebaubles.MODID, "amuletSinPride"),
+					new ResourceLocation(Tags.MOD_ID, "amuletSinPride"),
 					ModItems.sinPendantPride, new String[] {
 					"a",
 					"c" },
 					'c', ModItems.crownGold,
 					'a', ModItems.sinPendantEmpty)
-					.setRegistryName(new ResourceLocation(morebaubles.MODID, "amuletSinPride")));
+					.setRegistryName(new ResourceLocation(Tags.MOD_ID, "amuletSinPride")));
 		}
 		if (runeWrath) {
 			r.register(new ShapedOreRecipe(
-					new ResourceLocation(morebaubles.MODID, "amuletSinWrath"),
+					new ResourceLocation(Tags.MOD_ID, "amuletSinWrath"),
 					ModItems.sinPendantWrath, new String[] {
 					"r",
 					"a",
@@ -241,10 +242,10 @@ public class ModCrafting {
 					'r', "runeWrathB",
 					'h', Items.SKULL,
 					'a', ModItems.sinPendantEmpty)
-					.setRegistryName(new ResourceLocation(morebaubles.MODID, "amuletSinWrath")));
+					.setRegistryName(new ResourceLocation(Tags.MOD_ID, "amuletSinWrath")));
 		} else {
 			r.register(new ShapedOreRecipe(
-					new ResourceLocation(morebaubles.MODID, "amuletSinWrath"),
+					new ResourceLocation(Tags.MOD_ID, "amuletSinWrath"),
 					ModItems.sinPendantWrath, new String[] {
 					" b ",
 					"bab",
@@ -252,12 +253,12 @@ public class ModCrafting {
 					'h', Items.SKULL,
 					'b', Items.BONE,
 					'a', ModItems.sinPendantEmpty)
-					.setRegistryName(new ResourceLocation(morebaubles.MODID, "amuletSinWrath")));
+					.setRegistryName(new ResourceLocation(Tags.MOD_ID, "amuletSinWrath")));
 		}
 		
 		if (ingotEnderium) {
 			r.register(new ShapedOreRecipe(
-					new ResourceLocation(morebaubles.MODID, "wormholeMirror"),
+					new ResourceLocation(Tags.MOD_ID, "wormholeMirror"),
 					ModItems.wormholeMirror, new String[] {
 					"iei",
 					"pmp",
@@ -266,10 +267,10 @@ public class ModCrafting {
 					'm', ModItems.magicMirror,
 					'p', ModItems.potionWormhole,
 					'i', "ingotEnderium")
-					.setRegistryName(new ResourceLocation(morebaubles.MODID, "wormholeMirror")));
+					.setRegistryName(new ResourceLocation(Tags.MOD_ID, "wormholeMirror")));
 		} else {
 			r.register(new ShapedOreRecipe(
-					new ResourceLocation(morebaubles.MODID, "wormholeMirror"),
+					new ResourceLocation(Tags.MOD_ID, "wormholeMirror"),
 					ModItems.wormholeMirror, new String[] {
 					" e ",
 					"pmp",
@@ -277,12 +278,12 @@ public class ModCrafting {
 					'e', Items.ENDER_EYE,
 					'm', ModItems.magicMirror,
 					'p', ModItems.potionWormhole)
-					.setRegistryName(new ResourceLocation(morebaubles.MODID, "wormholeMirror")));
+					.setRegistryName(new ResourceLocation(Tags.MOD_ID, "wormholeMirror")));
 		}
 		
 		if (!morebaubles.isBotaniaLoaded) {
 			r.register(new ShapedOreRecipe(
-					new ResourceLocation(morebaubles.MODID, "phantomPrism"),
+					new ResourceLocation(Tags.MOD_ID, "phantomPrism"),
 					ModItems.phantomPrism, new String[] {
 					" e ",
 					"gdg",
@@ -291,10 +292,10 @@ public class ModCrafting {
 					'd', Items.DIAMOND,
 					'o', "obsidian",
 					'g', "blockGlass")
-					.setRegistryName(new ResourceLocation(morebaubles.MODID, "phantomPrism")));
+					.setRegistryName(new ResourceLocation(Tags.MOD_ID, "phantomPrism")));
 		}
 		r.register(new ShapedOreRecipe(
-				new ResourceLocation(morebaubles.MODID, "flare_red"),
+				new ResourceLocation(Tags.MOD_ID, "flare_red"),
 				new ItemStack(ModItems.flareRed, 8), new String[] {
 				"i",
 				"g",
@@ -302,7 +303,7 @@ public class ModCrafting {
 				'i', "ingotIron",
 				'g', Items.GUNPOWDER,
 				'G', Items.GLOWSTONE_DUST)
-				.setRegistryName(new ResourceLocation(morebaubles.MODID, "flare_red")));
+				.setRegistryName(new ResourceLocation(Tags.MOD_ID, "flare_red")));
 		}
 		
 		if (ModConfig.brewingRecipesEnabled.getBoolean(true)) {
@@ -325,7 +326,7 @@ public class ModCrafting {
 		if (ModConfig.spectralSiltRecipesEnabled.getBoolean(true)) {
 			if (runeAir) {
 				r.register(new ShapedOreRecipe(
-						new ResourceLocation(morebaubles.MODID, "spectralSilt_balloon"),
+						new ResourceLocation(Tags.MOD_ID, "spectralSilt_balloon"),
 						ModItems.balloon, new String[] {
 						"sws",
 						"wRw",
@@ -333,22 +334,22 @@ public class ModCrafting {
 						's', ModItems.spectralSilt,
 						'w', "blockWool",
 						'R', "runeAirB")
-						.setRegistryName(new ResourceLocation(morebaubles.MODID, "spectralSilt_balloon")));
+						.setRegistryName(new ResourceLocation(Tags.MOD_ID, "spectralSilt_balloon")));
 			} else {
 				r.register(new ShapedOreRecipe(
-						new ResourceLocation(morebaubles.MODID, "spectralSilt_balloon"),
+						new ResourceLocation(Tags.MOD_ID, "spectralSilt_balloon"),
 						ModItems.balloon, new String[] {
 						"sws",
 						"wsw",
 						"sws"},
 						's', ModItems.spectralSilt,
 						'w', "blockWool")
-						.setRegistryName(new ResourceLocation(morebaubles.MODID, "spectralSilt_balloon")));
+						.setRegistryName(new ResourceLocation(Tags.MOD_ID, "spectralSilt_balloon")));
 			}
 			if (ingotCobalt) {
 				if (runeEarth) {
 					r.register(new ShapedOreRecipe(
-							new ResourceLocation(morebaubles.MODID, "spectralSilt_shieldCobalt"),
+							new ResourceLocation(Tags.MOD_ID, "spectralSilt_shieldCobalt"),
 							ModItems.shieldCobalt, new String[] {
 							"sis",
 							"iSi",
@@ -357,10 +358,10 @@ public class ModCrafting {
 							'S', Items.SHIELD,
 							'i', "ingotCobalt",
 							'R', "runeEarthB")
-							.setRegistryName(new ResourceLocation(morebaubles.MODID, "spectralSilt_shieldCobalt")));
+							.setRegistryName(new ResourceLocation(Tags.MOD_ID, "spectralSilt_shieldCobalt")));
 				} else {
 					r.register(new ShapedOreRecipe(
-							new ResourceLocation(morebaubles.MODID, "spectralSilt_shieldCobalt"),
+							new ResourceLocation(Tags.MOD_ID, "spectralSilt_shieldCobalt"),
 							ModItems.shieldCobalt, new String[] {
 							"sis",
 							"iSi",
@@ -368,12 +369,12 @@ public class ModCrafting {
 							's', ModItems.spectralSilt,
 							'S', Items.SHIELD,
 							'i', "ingotCobalt")
-							.setRegistryName(new ResourceLocation(morebaubles.MODID, "spectralSilt_shieldCobalt")));
+							.setRegistryName(new ResourceLocation(Tags.MOD_ID, "spectralSilt_shieldCobalt")));
 				}
 			} else {
 				if (runeEarth) {
 					r.register(new ShapedOreRecipe(
-							new ResourceLocation(morebaubles.MODID, "spectralSilt_shieldCobalt"),
+							new ResourceLocation(Tags.MOD_ID, "spectralSilt_shieldCobalt"),
 							ModItems.shieldCobalt, new String[] {
 							"sss",
 							"sSs",
@@ -381,21 +382,21 @@ public class ModCrafting {
 							's', ModItems.spectralSilt,
 							'S', Items.SHIELD,
 							'R', "runeEarthB")
-							.setRegistryName(new ResourceLocation(morebaubles.MODID, "spectralSilt_shieldCobalt")));
+							.setRegistryName(new ResourceLocation(Tags.MOD_ID, "spectralSilt_shieldCobalt")));
 				} else {
 					r.register(new ShapedOreRecipe(
-							new ResourceLocation(morebaubles.MODID, "spectralSilt_shieldCobalt"),
+							new ResourceLocation(Tags.MOD_ID, "spectralSilt_shieldCobalt"),
 							ModItems.shieldCobalt, new String[] {
 							"sss",
 							"sSs",
 							"sss"},
 							's', ModItems.spectralSilt,
 							'S', Items.SHIELD)
-							.setRegistryName(new ResourceLocation(morebaubles.MODID, "spectralSilt_shieldCobalt")));
+							.setRegistryName(new ResourceLocation(Tags.MOD_ID, "spectralSilt_shieldCobalt")));
 				}
 			}
 			r.register(new ShapedOreRecipe(
-					new ResourceLocation(morebaubles.MODID, "spectralSilt_magicMirror"),
+					new ResourceLocation(Tags.MOD_ID, "spectralSilt_magicMirror"),
 					ModItems.magicMirror, new String[] {
 					"sps",
 					"gdg",
@@ -404,10 +405,10 @@ public class ModCrafting {
 					'd', Items.DIAMOND,
 					'g', "blockGlass",
 					'p', ModItems.potionRecall)
-					.setRegistryName(new ResourceLocation(morebaubles.MODID, "spectralSilt_magicMirror")));
+					.setRegistryName(new ResourceLocation(Tags.MOD_ID, "spectralSilt_magicMirror")));
 			if (runeEarth && runeAir) {
 				r.register(new ShapedOreRecipe(
-						new ResourceLocation(morebaubles.MODID, "spectralSilt_luckyHorseshoe"),
+						new ResourceLocation(Tags.MOD_ID, "spectralSilt_luckyHorseshoe"),
 						ModItems.trinketLuckyHorseshoe, new String[] {
 						"gsg",
 						"EsA",
@@ -416,21 +417,21 @@ public class ModCrafting {
 						'g', "ingotGold",
 						'E', "runeEarthB",
 						'A', "runeAirB")
-						.setRegistryName(new ResourceLocation(morebaubles.MODID, "spectralSilt_luckyHorseshoe")));
+						.setRegistryName(new ResourceLocation(Tags.MOD_ID, "spectralSilt_luckyHorseshoe")));
 			} else {
 				r.register(new ShapedOreRecipe(
-						new ResourceLocation(morebaubles.MODID, "spectralSilt_luckyHorseshoe"),
+						new ResourceLocation(Tags.MOD_ID, "spectralSilt_luckyHorseshoe"),
 						ModItems.trinketLuckyHorseshoe, new String[] {
 						"gsg",
 						"gsg",
 						"sgs"},
 						's', ModItems.spectralSilt,
 						'g', "ingotGold")
-						.setRegistryName(new ResourceLocation(morebaubles.MODID, "spectralSilt_luckyHorseshoe")));
+						.setRegistryName(new ResourceLocation(Tags.MOD_ID, "spectralSilt_luckyHorseshoe")));
 			}
 			//TODO broken heart
 			r.register(new ShapedOreRecipe(
-					new ResourceLocation(morebaubles.MODID, "spectralSilt_magicLenses"),
+					new ResourceLocation(Tags.MOD_ID, "spectralSilt_magicLenses"),
 					ModItems.trinketMagicLenses, new String[] {
 					"s s",
 					"gSg",
@@ -438,18 +439,18 @@ public class ModCrafting {
 					's', ModItems.spectralSilt,
 					'g', "blockGlass",
 					'S', Items.STICK)
-					.setRegistryName(new ResourceLocation(morebaubles.MODID, "spectralSilt_magicLenses")));
+					.setRegistryName(new ResourceLocation(Tags.MOD_ID, "spectralSilt_magicLenses")));
 			r.register(new ShapedOreRecipe(
-					new ResourceLocation(morebaubles.MODID, "spectralSilt_amuletCross"),
+					new ResourceLocation(Tags.MOD_ID, "spectralSilt_amuletCross"),
 					ModItems.amuletCross, new String[] {
 					"sgs",
 					"ggg",
 					"sgs"},
 					's', ModItems.spectralSilt,
 					'g', "ingotGold")
-					.setRegistryName(new ResourceLocation(morebaubles.MODID, "spectralSilt_amuletCross")));
+					.setRegistryName(new ResourceLocation(Tags.MOD_ID, "spectralSilt_amuletCross")));
 			r.register(new ShapedOreRecipe(
-					new ResourceLocation(morebaubles.MODID, "spectralSilt_sinPendantEmpty"),
+					new ResourceLocation(Tags.MOD_ID, "spectralSilt_sinPendantEmpty"),
 					ModItems.sinPendantEmpty, new String[] {
 					"sSs",
 					"sis",
@@ -457,30 +458,30 @@ public class ModCrafting {
 					's', ModItems.spectralSilt,
 					'i', "ingotIron",
 					'S', Items.STRING)
-					.setRegistryName(new ResourceLocation(morebaubles.MODID, "spectralSilt_sinPendantEmpty")));
+					.setRegistryName(new ResourceLocation(Tags.MOD_ID, "spectralSilt_sinPendantEmpty")));
 			r.register(new ShapedOreRecipe(
-					new ResourceLocation(morebaubles.MODID, "spectralSilt_flareGun"),
+					new ResourceLocation(Tags.MOD_ID, "spectralSilt_flareGun"),
 					ModItems.flareGun, new String[] {
 					"sss",
 					"iii",
 					"iss"},
 					's', ModItems.spectralSilt,
 					'i', "ingotIron")
-					.setRegistryName(new ResourceLocation(morebaubles.MODID, "spectralSilt_flareGun")));
+					.setRegistryName(new ResourceLocation(Tags.MOD_ID, "spectralSilt_flareGun")));
 			r.register(new ShapedOreRecipe(
-					new ResourceLocation(morebaubles.MODID, "spectralSilt_brokenBlackDragonScale"),
+					new ResourceLocation(Tags.MOD_ID, "spectralSilt_brokenBlackDragonScale"),
 					ModItems.brokenBlackDragonScale, new String[] {
 					"sss",
 					"sSs",
 					"sss"},
 					's', ModItems.spectralSilt,
 					'S', "scaleDragonEnder")
-					.setRegistryName(new ResourceLocation(morebaubles.MODID, "spectralSilt_brokenBlackDragonScale")));
+					.setRegistryName(new ResourceLocation(Tags.MOD_ID, "spectralSilt_brokenBlackDragonScale")));
 		}
 		
 		if (ModConfig.spectralSiltEnabled.getBoolean(true)) {
 			r.register(new ShapedOreRecipe(
-					new ResourceLocation(morebaubles.MODID, "spectralSilt_disintegrationTablet"),
+					new ResourceLocation(Tags.MOD_ID, "spectralSilt_disintegrationTablet"),
 					ModItems.disintegrationTablet, new String[] {
 					"qbq",
 					"brb",
@@ -488,7 +489,7 @@ public class ModCrafting {
 					'r', Items.REDSTONE,
 					'b', Items.BLAZE_POWDER,
 					'q', Items.QUARTZ)
-					.setRegistryName(new ResourceLocation(morebaubles.MODID, "spectralSilt_disintegrationTablet")));
+					.setRegistryName(new ResourceLocation(Tags.MOD_ID, "spectralSilt_disintegrationTablet")));
 			addDisintegrationRecipe(r, ModItems.trinketBrokenHeart);
 			addDisintegrationRecipe(r, ModItems.balloon);
 			addDisintegrationRecipe(r, ModItems.shieldCobalt);
@@ -508,10 +509,10 @@ public class ModCrafting {
 		addDisintegrationRecipe(r, item, 1);
 	}
 	private static void addDisintegrationRecipe(IForgeRegistry<IRecipe> r, Item item, int amt) {
-		r.register(new ShapelessOreRecipe(new ResourceLocation(morebaubles.MODID, "disintegrate_"+item.getTranslationKey()),
+		r.register(new ShapelessOreRecipe(new ResourceLocation(Tags.MOD_ID, "disintegrate_"+item.getTranslationKey()),
 				new ItemStack(ModItems.spectralSilt, amt),
 				item,
 				ModItems.disintegrationTablet)
-				.setRegistryName(new ResourceLocation(morebaubles.MODID, "disintegrate_"+item.getTranslationKey())));
+				.setRegistryName(new ResourceLocation(Tags.MOD_ID, "disintegrate_"+item.getTranslationKey())));
 	}
 }

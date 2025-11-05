@@ -13,7 +13,7 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
 public class TeleportRequest {
-	public static enum Status {
+	public enum Status {
 		PENDING, ACCEPT, REJECT, TIMEOUT
 	}
 	public static List<TeleportRequest> requests = new ArrayList<>(); //TODO clear on world exit

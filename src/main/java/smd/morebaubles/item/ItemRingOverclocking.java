@@ -1,10 +1,6 @@
 package smd.morebaubles.item;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 import baubles.api.BaubleType;
 import smd.morebaubles.morebaubles;
@@ -51,6 +47,6 @@ public class ItemRingOverclocking extends AGenericItemBauble implements IItemAtt
 
 	@Override
 	public List<String> getCureEffects() {
-		return Arrays.asList("minecraft:slowness");
+		return Collections.singletonList("minecraft:slowness");
 	}
 }

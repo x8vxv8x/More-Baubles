@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.apache.logging.log4j.Logger;
 
+import smd.morebaubles.Tags;
 import smd.morebaubles.morebaubles;
 import smd.morebaubles.network.NBTPacket;
 import smd.morebaubles.network.PacketHandler;
@@ -57,8 +58,8 @@ public class Config {
 	public enum EnumPropSide {
 		CLIENT,
 		SERVER,
-		SYNCED;
-	}
+		SYNCED
+    }
 
 	public Map<String, Property> getLocalPropMap(EnumPropSide side) {
 		if (side==EnumPropSide.CLIENT) {
@@ -100,7 +101,7 @@ public class Config {
 
 	public void preInit(FMLPreInitializationEvent e) {
 		File directory = e.getModConfigurationDirectory();
-		File configFile = new File(directory.getPath(), morebaubles.MODID+".cfg");
+		File configFile = new File(directory.getPath(), Tags.MOD_ID+".cfg");
 		configuration = new Configuration(configFile, version);
 		MinecraftForge.EVENT_BUS.register(this);
 	}

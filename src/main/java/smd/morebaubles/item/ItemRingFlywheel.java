@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import baubles.api.BaubleType;
 import baubles.api.BaublesApi;
 import baubles.api.cap.IBaublesItemHandler;
+import smd.morebaubles.Tags;
 import smd.morebaubles.morebaubles;
 import smd.morebaubles.capability.CLEnergyStorage;
 import smd.morebaubles.item.base.AGenericItemBauble;
@@ -41,7 +42,7 @@ public class ItemRingFlywheel extends AGenericItemBauble {
 		super(name, morebaubles.TAB);
 		morebaubles.registryHelper.addItemModel(this);
 //		rfCapacity = capacity;
-		addPropertyOverride(new ResourceLocation(morebaubles.MODID, "charge"),
+		addPropertyOverride(new ResourceLocation(Tags.MOD_ID, "charge"),
 				new IItemPropertyGetter() {
 					@SideOnly(Side.CLIENT)
 					@Override
@@ -77,7 +78,7 @@ public class ItemRingFlywheel extends AGenericItemBauble {
 			int energy = e.getEnergyStored();
 			int max = e.getMaxEnergyStored();
 			String color = energy==0 ? "�4" : energy<max/4 ? "�c" : energy<max/2 ? "�e" : "�a";
-			tooltip.add(color+String.valueOf(energy)+"/"+String.valueOf(max)+"RF");
+			tooltip.add(color+ energy +"/"+ max +"RF");
 		}
 	}
 
@@ -98,11 +99,8 @@ public class ItemRingFlywheel extends AGenericItemBauble {
 	@Override
 	public boolean showDurabilityBar(ItemStack stack) {
 		IEnergyStorage e = stack.getCapability(ENERGY_STORAGE_CAPABILITY, null);
-		if (e==null||e.getEnergyStored()>=e.getMaxEnergyStored()) {
-			return false;
-		}
-		return true;
-	}
+        return e != null && e.getEnergyStored() < e.getMaxEnergyStored();
+    }
 
 	@Override
 	public double getDurabilityForDisplay(ItemStack stack) {
@@ -110,7 +108,7 @@ public class ItemRingFlywheel extends AGenericItemBauble {
 		if (e==null) {
 			return 1;
 		}
-		return (double) (1.0D-(((double) e.getEnergyStored())/((double) e.getMaxEnergyStored())));
+		return 1.0D-(((double) e.getEnergyStored())/((double) e.getMaxEnergyStored()));
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package smd.morebaubles.potion;
 
+import smd.morebaubles.Tags;
 import smd.morebaubles.morebaubles;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.GlStateManager;
@@ -11,7 +12,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class PotionSin extends Potion {
-	public ResourceLocation TEXTURE = new ResourceLocation(morebaubles.MODID,
+	public ResourceLocation TEXTURE = new ResourceLocation(Tags.MOD_ID,
 			"textures/gui/sinful.png");
 	String UUID_DAMAGE = "d0b248eb-3abb-4584-9cc5-2aaa06146300";
 	String UUID_ARMOR = "d01deb3c-0e03-4d1f-b402-a9a47db42ccd";
@@ -19,8 +20,8 @@ public class PotionSin extends Potion {
 
 	protected PotionSin() {
 		super(false, 0x101317);
-		setRegistryName(morebaubles.MODID, "sinful");
-		setPotionName(morebaubles.MODID+".effect.sinful");
+		setRegistryName(Tags.MOD_ID, "sinful");
+		setPotionName(Tags.MOD_ID+".effect.sinful");
 		registerPotionAttributeModifier(SharedMonsterAttributes.ATTACK_DAMAGE, UUID_DAMAGE, 0.25D,
 				1);
 		registerPotionAttributeModifier(SharedMonsterAttributes.ARMOR, UUID_ARMOR, 3, 0);

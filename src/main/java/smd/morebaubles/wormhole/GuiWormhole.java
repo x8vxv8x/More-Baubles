@@ -1,5 +1,6 @@
 package smd.morebaubles.wormhole;
 
+import smd.morebaubles.Tags;
 import smd.morebaubles.morebaubles;
 import smd.morebaubles.client.gui.GuiBetterButton;
 import smd.morebaubles.client.gui.GuiToggleButton;
@@ -18,7 +19,7 @@ public class GuiWormhole extends GuiScreen {
 //	private List<EntityPlayer> players;
 	private int page = 0;
 
-	private ContainerWormhole container;
+	private final ContainerWormhole container;
 
 	public ContainerWormhole getContainer() {
 		return container;
@@ -45,9 +46,9 @@ public class GuiWormhole extends GuiScreen {
 			buttonList.add(new GuiToggleButton(id++, guiLeft+WIDTH/2+80, guiTop+j));
 		}
 		String prev = morebaubles.proxy
-				.translate(morebaubles.MODID+".gui.misc.prev_page");
+				.translate(Tags.MOD_ID+".gui.misc.prev_page");
 		String next = morebaubles.proxy
-				.translate(morebaubles.MODID+".gui.misc.next_page");
+				.translate(Tags.MOD_ID+".gui.misc.next_page");
 		buttonList.add(new GuiBetterButton(id++, guiLeft, guiTop+8+24*8, 80, 20, prev));
 		buttonList.add(new GuiBetterButton(id++, guiLeft+WIDTH-80, guiTop+8+24*8, 80, 20, next));
 		// TODO page change buttons

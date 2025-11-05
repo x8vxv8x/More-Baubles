@@ -3,17 +3,17 @@ package smd.morebaubles.baubleeffect;
 import java.util.UUID;
 
 public interface IFireResistance {
-	public default float getResistance() {
+	default float getResistance() {
 		return 1.0F;
 	}
 
-	public default float getResistanceLava() {
+	default float getResistanceLava() {
 		return 0.0F;
 	}
 
-	public default float getMaxNegate() {
+	default float getMaxNegate() {
 		return 0.0F;
 	}
 
-	public UUID getFireResistID();
+	UUID getFireResistID();
 }
