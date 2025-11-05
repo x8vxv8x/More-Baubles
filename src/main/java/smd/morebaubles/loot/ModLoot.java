@@ -136,9 +136,6 @@ public class ModLoot {
 					entries.add(new LootEntryItem(ModItems.phantomPrism, 1, 0, new LootFunction[0],
 							new LootCondition[0],
 							ModItems.phantomPrism.getRegistryName().toString()));
-					entries.add(new LootEntryTable(
-							new ResourceLocation(Tags.MOD_ID, "flare_gun"), 10, 0,
-							new LootCondition[0], ModItems.flareGun.getRegistryName().toString()));
 					LootPool pool = new LootPool(entries.toArray(new LootEntry[0]),
 							new LootCondition[] { new RandomChance((float) baseRate) },
 							new RandomValueRange(1), new RandomValueRange(0),
@@ -146,7 +143,6 @@ public class ModLoot {
 					event.getTable().addPool(pool);
 				}
 				double potionRate = dungeon_potionRate.getDouble(0.75D);
-//				morebaubles.logger.info("potionRate: "+potionRate);
 				if (potionRate>0) {
 					List<LootEntry> entries2 = new ArrayList<>();
 					entries2.add(
@@ -166,7 +162,6 @@ public class ModLoot {
 				}
 			} else if (eventName.equals("minecraft:chests/nether_bridge")) {
 				double baseRate = nether_baseRate.getDouble(0.2D);
-//				morebaubles.logger.info("n_baseRate: "+baseRate);
 				if (baseRate>0) {
 					List<LootEntry> entries = new ArrayList<>();
 					Item[] itemsWeight10 = { ModItems.brokenBlackDragonScale, ModItems.magicMirror,
@@ -187,7 +182,6 @@ public class ModLoot {
 				}
 
 				double miscRate = nether_potionRate.getDouble(0.1D);
-//				morebaubles.logger.info("n_miscRate: "+miscRate);
 				if (miscRate>0) {
 					List<LootEntry> entries2 = new ArrayList<>();
 					entries2.add(new LootEntryItem(ModItems.potionRecall, 5, 0, new LootFunction[0],
@@ -212,8 +206,6 @@ public class ModLoot {
 		}
 	}
 
-	// Ender dragon loot table doesn't work?
-	// TODO disable only if quark has scales enabled
 	@SubscribeEvent
 	public static void onEntityTick(LivingUpdateEvent event) {
 		if (ModConfig.mobLootEnabled

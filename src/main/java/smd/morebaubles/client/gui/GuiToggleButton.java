@@ -1,7 +1,6 @@
 package smd.morebaubles.client.gui;
 
 import smd.morebaubles.Tags;
-import smd.morebaubles.morebaubles;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.GlStateManager;

@@ -7,8 +7,6 @@ import smd.morebaubles.client.layer.BountfulRenderLayer;
 import smd.morebaubles.client.model.ModelCrownGold;
 import smd.morebaubles.client.model.ModelSunglasses;
 import smd.morebaubles.client.particle.ParticleGradient;
-import smd.morebaubles.client.render.RenderFlare;
-import smd.morebaubles.entity.EntityFlare;
 import smd.morebaubles.entity.ThrowableAdvancedRenderFactory;
 import smd.morebaubles.entity.ThrowableDefaultRenderFactory;
 import net.minecraft.client.Minecraft;
@@ -91,11 +89,6 @@ public class ClientProxy implements ISideProxy {
 				c,
 				new ThrowableAdvancedRenderFactory<T>(texture)
 		);
-	}
-
-	@Override
-	public void registerEntityRenderingHandlers() {
-		RenderingRegistry.registerEntityRenderingHandler(EntityFlare.class, RenderFlare::new);
 	}
 
 	@Override

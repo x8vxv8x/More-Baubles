@@ -500,7 +500,6 @@ public class ModCrafting {
 			addDisintegrationRecipe(r, ModItems.trinketMagicLenses);
 			addDisintegrationRecipe(r, ModItems.amuletCross);
 			addDisintegrationRecipe(r, ModItems.sinPendantEmpty);
-			addDisintegrationRecipe(r, ModItems.flareGun);
 			addDisintegrationRecipe(r, ModItems.brokenBlackDragonScale);
 		}
 	}

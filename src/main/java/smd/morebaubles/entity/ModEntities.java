@@ -29,15 +29,10 @@ public class ModEntities {
 	}
 
 	public static void registerEntities() {
-//		morebaubles.logger.info("Registering Entities!");
 		int id = 0;
 		registerWithRenderer("grenade", EntityGrenade.class, ModItems.grenade, id++);
 		registerWithRenderer("beenade", EntityBeenade.class, ModItems.beenade, id++);
 		registerWithRenderer("bee", EntityBee.class,
 				new ResourceLocation(Tags.MOD_ID, "textures/other/bee.png"), id++);
-		register("flare", EntityFlare.class, id++);
-//		EntityRegistry.registerModEntity(new ResourceLocation(Tags.MOD_ID, "flare"),
-//				EntityFlare.class, "flare", id++, morebaubles.instance, 128, 3, true);
-		morebaubles.proxy.registerEntityRenderingHandlers();
 	}
 }

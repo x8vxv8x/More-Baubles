@@ -1,7 +1,6 @@
 package smd.morebaubles.client.gui;
 
 import smd.morebaubles.Tags;
-import smd.morebaubles.morebaubles;
 import smd.morebaubles.container.ContainerPhantomPrism;
 import smd.morebaubles.network.NBTPacket;
 import smd.morebaubles.network.PacketHandler;

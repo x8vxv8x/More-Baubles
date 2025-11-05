@@ -6,7 +6,7 @@ import smd.morebaubles.baubleeffect.IJumpBoost;
 import smd.morebaubles.item.base.AGenericItemBauble;
 import net.minecraft.item.ItemStack;
 
-//TODO add item model like terraria's balloon?
+//气球
 public class ItemTrinketBalloon extends AGenericItemBauble implements IJumpBoost {
 	public ItemTrinketBalloon() {
 		super("trinketBalloon", morebaubles.TAB);

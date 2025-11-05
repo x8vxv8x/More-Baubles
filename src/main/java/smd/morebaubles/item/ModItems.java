@@ -28,9 +28,7 @@ import net.minecraftforge.oredict.OreDictionary;
 public class ModItems {
 	public static Item modifierBook = null;
 	public static Item ironRing = null;
-	public static Item goldRing = null;
 	public static Item balloon = null;
-	public static Item charmHermesWings = null;
 	public static Item shieldCobalt = null;
 	public static Item trinketObsidianSkull = null;
 	public static Item shieldObsidian = null;
@@ -59,33 +57,14 @@ public class ModItems {
 	public static Item crownGold = null;
 	public static Item sinPendantPride = null;
 	public static Item sinPendantWrath = null;
-	public static Item sinPendantGreed = null;
-	public static Item sinPendantEnvy = null;
-	public static Item sinPendantSloth = null;
-	public static Item sinPendantLust = null;
 	public static Item trinketBrokenHeart = null;
 	public static Item amuletCross = null;
 	public static Item phantomPrism = null;
 	public static Item disintegrationTablet = null;
 	public static Item spectralSilt = null;
-	public static Item umbrella = null;
 	public static Item flareGun = null;
-//	public static Item flareWhite = null;
-//	public static Item flareOrange = null;
-//	public static Item flareMagenta = null;
-//	public static Item flareLightBlue = null;
-//	public static Item flareYellow = null;
-//	public static Item flareLime = null;
-//	public static Item flarePink = null;
-//	public static Item flareCyan = null;
-//	public static Item flarePurple = null;
-//	public static Item flareBlue = null;
-//	public static Item flareBrown = null;
-//	public static Item flareGreen = null;
+
 	public static Item flareRed = null;
-	// NOTE: These need to be initialized on construction because entities are
-	// loaded first, and the entities for these
-	// reference the item for their rendering
 	public static Item grenade = new ItemGrenade("grenade");
 	public static Item beenade = new ItemBeenade("beenade");
 
@@ -95,16 +74,12 @@ public class ModItems {
 	public static void registerToRegistry() {
 		morebaubles.registryHelper.setAutoaddItemModels(true);
 
-		morebaubles.registryHelper.addItem(modifierBook = new ItemModifierBook());
-
+		morebaubles.registryHelper
+				.addItem(modifierBook = new ItemModifierBook());
 		morebaubles.registryHelper
 				.addItem(ironRing = new GenericItemBB("ringIron", morebaubles.TAB));
-//		morebaubles.registryHelper
-//				.addItem(goldRing = new GenericItemBB("ringGold", morebaubles.TAB));
-
-		// TODO add item rarities?
-		morebaubles.registryHelper.addItem(balloon = new ItemTrinketBalloon());
-//		morebaubles.registryHelper.addItem(charmHermesWings = new ItemCharmHermesWings());
+		morebaubles.registryHelper
+				.addItem(balloon = new ItemTrinketBalloon());
 		morebaubles.registryHelper
 				.addItem(shieldCobalt = new ItemShieldCobalt("shieldCobalt"));
 		morebaubles.registryHelper
@@ -210,8 +185,7 @@ public class ModItems {
 		morebaubles.registryHelper
 				.addItem(sinPendantEmpty = new ItemAmuletSin("amuletSinEmpty", "amulet_sin_empty"));
 		morebaubles.registryHelper.addItem(sinPendantGluttony = new ItemAmuletSinGluttony());
-		// TODO phantom ink doesn't work on gold crown?
-		// gold, but with durability between iron and diamond
+
 		ArmorMaterial crownGoldMat = EnumHelper.addArmorMaterial("crownGold",
 				Tags.MOD_ID+":crownGold", 25, new int[] { 0, 0, 0, 2 }, 25,
 				SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0.0F);
@@ -231,28 +205,6 @@ public class ModItems {
 				.addItem(disintegrationTablet = new ItemDisintegrationTablet());
 		morebaubles.registryHelper.addItem(spectralSilt = new ItemSpectralSilt());
 
-//		morebaubles.registryHelper.addItem(umbrella = new ItemUmbrella());
-
-		morebaubles.registryHelper.addItem(flareGun = new ItemFlareGun());
-
-//		morebaubles.registryHelper.addItem(flareWhite = new ItemFlare(EnumDyeColor.WHITE));
-//		morebaubles.registryHelper.addItem(flareOrange = new ItemFlare(EnumDyeColor.ORANGE));
-//		morebaubles.registryHelper.addItem(flareMagenta = new ItemFlare(EnumDyeColor.MAGENTA));
-//		morebaubles.registryHelper
-//				.addItem(flareLightBlue = new ItemFlare(EnumDyeColor.LIGHT_BLUE));
-//		morebaubles.registryHelper.addItem(flareYellow = new ItemFlare(EnumDyeColor.YELLOW));
-//		morebaubles.registryHelper.addItem(flareLime = new ItemFlare(EnumDyeColor.LIME));
-//		morebaubles.registryHelper.addItem(flarePink = new ItemFlare(EnumDyeColor.PINK));
-//		morebaubles.registryHelper.addItem(flareCyan = new ItemFlare(EnumDyeColor.CYAN));
-//		morebaubles.registryHelper.addItem(flarePurple = new ItemFlare(EnumDyeColor.PURPLE));
-//		morebaubles.registryHelper.addItem(flareBlue = new ItemFlare(EnumDyeColor.BLUE));
-//		morebaubles.registryHelper.addItem(flareBrown = new ItemFlare(EnumDyeColor.BROWN));
-//		morebaubles.registryHelper.addItem(flareGreen = new ItemFlare(EnumDyeColor.GREEN));
-		morebaubles.registryHelper.addItem(flareRed = new ItemFlare(EnumDyeColor.RED));
-		// NOTE: These need to be initialized on
-		// Adding throwable items
-//		morebaubles.registryHelper.addItem(grenade);
-//		morebaubles.registryHelper.addItem(beenade);
 		AnvilRecipes.add(ringOverclocking, trinketShulkerHeart, 10, new ItemStack(ringFreeAction));
 		AnvilRecipes.add(trinketBezoar, trinketBlackDragonScale, 10,
 				new ItemStack(trinketMixedDragonScale));
@@ -261,7 +213,6 @@ public class ModItems {
 	public static void registerOreDictionaryEntries() {
 		OreDictionary.registerOre("scaleDragonEnder", enderDragonScale);
 		OreDictionary.registerOre("ringIron", ironRing);
-//		OreDictionary.registerOre("ringGold", goldRing);
 	}
 
 	public static void registerOtherModOreDictionaryEntries() {
