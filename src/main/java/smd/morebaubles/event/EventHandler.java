@@ -20,7 +20,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.PotionEvent.PotionApplicableEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -30,7 +29,6 @@ public class EventHandler {
 	@SubscribeEvent
 	public static void onJump(LivingEvent.LivingJumpEvent event) {
 		if (event.getEntityLiving() instanceof EntityPlayer) {
-			// System.out.println("player jump");
 			EntityPlayer player = (EntityPlayer) event.getEntityLiving();
 			IBaublesItemHandler baubles = BaublesApi.getBaublesHandler(player);
 			Set<String> found = new HashSet<>();
@@ -38,12 +36,7 @@ public class EventHandler {
 				ItemStack stack = baubles.getStackInSlot(i);
 				if (stack.getItem() instanceof IJumpBoost
 						&&!found.contains(stack.getItem().getTranslationKey())) {
-					// prevent duplicates of the same item from stacking effects
-					// TODO add way for particular items to stack?
-					// TODO change to UUID system like fire resist
 					found.add(stack.getItem().getTranslationKey());
-					// System.out.println("Found item
-					// "+stack.getItem().getUnlocalizedName());
 					IJumpBoost jumpBoost = (IJumpBoost) (stack.getItem());
 					player.motionY += jumpBoost.getJumpBoost();
 					player.fallDistance -= jumpBoost.getFallResist();
@@ -52,7 +45,6 @@ public class EventHandler {
 		}
 	}
 
-	// need this one too, so the damage animation can be canceled
 	@SubscribeEvent
 	public static void onDamage(LivingAttackEvent event) {
 		if (event.getEntityLiving() instanceof EntityPlayer) {
@@ -82,12 +74,6 @@ public class EventHandler {
 					}
 				}
 
-//				// CF has some intrinsic fire resistance
-//				if (player.getUniqueID()
-//						.equals(UUID.fromString("7e55ae7a-203b-4a78-9f14-43a3cdf3e124"))) {
-//					damageMulti *= 0.5F;
-//					damageMultiLava *= 0.5F;
-//				}
 				if (event.getAmount()<=maxDamageNegate&&event.isCancelable())
 					event.setCanceled(true);
 				if (event.getSource().equals(DamageSource.LAVA)) {
@@ -130,12 +116,6 @@ public class EventHandler {
 					}
 				}
 
-//				// CF has some intrinsic fire resistance
-//				if (player.getUniqueID()
-//						.equals(UUID.fromString("7e55ae7a-203b-4a78-9f14-43a3cdf3e124"))) {
-//					damageMulti *= 0.5F;
-//					damageMultiLava *= 0.5F;
-//				}
 				if (event.getAmount()<=maxDamageNegate&&event.isCancelable())
 					event.setCanceled(true);
 				if (event.getSource().equals(DamageSource.LAVA)) {
@@ -151,16 +131,6 @@ public class EventHandler {
 				if (BaublesApi.isBaubleEquipped(player, ModItems.trinketLuckyHorseshoe)!=-1) {
 					event.setCanceled(true);
 				}
-			}
-		}
-	}
-
-	// TODO this doesn't seem to work, find another way to cancel fall sound?
-	public static void onFall(LivingFallEvent event) {
-		if (event.getEntityLiving() instanceof EntityPlayer) {
-			EntityPlayer player = (EntityPlayer) event.getEntityLiving();
-			if (BaublesApi.isBaubleEquipped(player, ModItems.trinketLuckyHorseshoe)!=-1) {
-				event.setCanceled(true);
 			}
 		}
 	}
@@ -194,14 +164,4 @@ public class EventHandler {
 		PotionNegation.potionApply(event);
 	}
 
-	// this doesn't work?
-//	@SubscribeEvent(priority = EventPriority.LOWEST)
-//	public static void onItemConstruct(AttachCapabilitiesEvent<ItemStack> event) {
-//		if (!(event.getObject().hasCapability(BaublesCapabilities.CAPABILITY_BAUBLES, null)))
-//			return;
-//		morebaubles.logger.info("item construct");
-//		ItemStack stack = event.getObject();
-//		if (!stack.hasTagCompound()||!stack.getTagCompound().hasKey("baubleModifier"))
-//			EnumBaubleModifier.generateModifier(stack);
-//	}
 }
