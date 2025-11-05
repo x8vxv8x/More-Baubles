@@ -1,0 +1,56 @@
+package smd.morebaubles.item;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+
+import baubles.api.BaubleType;
+import smd.morebaubles.morebaubles;
+import smd.morebaubles.baubleeffect.PotionNegation;
+import smd.morebaubles.baubleeffect.PotionNegation.IPotionNegateItem;
+import smd.morebaubles.item.base.AGenericItemBauble;
+import smd.morebaubles.item.base.IItemAttributeModifier;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.IAttribute;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+
+public class ItemRingOverclocking extends AGenericItemBauble implements IItemAttributeModifier, IPotionNegateItem {
+	public ItemRingOverclocking() {
+		super("ringOverclocking", morebaubles.TAB);
+		morebaubles.registryHelper.addItemModel(this);
+	}
+
+	public static final UUID SPEED_UUID = UUID.fromString("067d9c52-5ffb-4fad-b581-f17ecc799549");
+	private static final Map<IAttribute, AttributeModifier> modMap = new HashMap<>();
+	static {
+		modMap.put(SharedMonsterAttributes.MOVEMENT_SPEED,
+				new AttributeModifier(SPEED_UUID, "Ring of Overclocking speed", 0.07, 2));
+	}
+
+	@Override
+	public BaubleType getBaubleType(ItemStack stack) {
+		return BaubleType.RING;
+	}
+
+	@Override
+	public Map<IAttribute, AttributeModifier> getModifiers(ItemStack stack, EntityPlayer player) {
+		return modMap;
+	}
+
+	@Override
+	public void onWornTick(ItemStack stack, EntityLivingBase player) {
+		PotionNegation.negatePotion(player,
+				Potion.getPotionFromResourceLocation("minecraft:slowness"));
+	}
+
+	@Override
+	public List<String> getCureEffects() {
+		return Arrays.asList("minecraft:slowness");
+	}
+}

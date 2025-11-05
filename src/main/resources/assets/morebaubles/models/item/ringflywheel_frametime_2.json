@@ -1,0 +1,6 @@
+{
+	"parent": "morebaubles:item/ringflywheel",
+	"textures": {
+		"layer0": "morebaubles:items/ring_flywheel/frametime_2"
+	}
+}

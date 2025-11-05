@@ -1,0 +1,14 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "morebaubles:items/wormhole_mirror"
+	},
+	"overrides": [
+        {
+            "predicate": {
+                "using": 1
+            },
+            "model": "morebaubles:item/wormholemirror_using"
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "morebaubles:items/ring_flywheel_advanced/stopped"
+	},
+	"overrides": [
+		{
+			"predicate": {
+				"morebaubles:charge": 0.00001
+			},
+			"model": "morebaubles:item/ringflywheeladvanced_frametime_4"
+		},
+		{
+			"predicate": {
+				"morebaubles:charge": 0.125
+			},
+			"model": "morebaubles:item/ringflywheeladvanced_frametime_2"
+		},
+		{
+			"predicate": {
+				"morebaubles:charge": 0.25
+			},
+			"model": "morebaubles:item/ringflywheeladvanced_frametime_1"
+		},
+		{
+			"predicate": {
+				"morebaubles:charge": 0.5
+			},
+			"model": "morebaubles:item/ringflywheeladvanced_frametime_half"
+		}
+	]
+}

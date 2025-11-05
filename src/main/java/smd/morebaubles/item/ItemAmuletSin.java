@@ -1,0 +1,102 @@
+package smd.morebaubles.item;
+
+import baubles.api.BaubleType;
+import baubles.api.render.IRenderBauble;
+import smd.morebaubles.morebaubles;
+import smd.morebaubles.item.base.AGenericItemBauble;
+import smd.morebaubles.potion.ModPotions;
+import smd.morebaubles.util.ItemUtil;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import vazkii.botania.api.item.IPhantomInkable;
+
+public class ItemAmuletSin extends AGenericItemBauble implements IRenderBauble, IPhantomInkable {
+	public ItemAmuletSin(String name, String textureName) {
+		super(name, morebaubles.TAB);
+		texture = new ResourceLocation(
+				morebaubles.MODID,
+				morebaubles.ARMOR_TEXTURE_PATH + textureName + ".png"
+		);
+	}
+
+	public final ResourceLocation texture;
+	@SideOnly(Side.CLIENT)
+	private static ModelBiped model;
+
+	@Override
+	public BaubleType getBaubleType(ItemStack stack) {
+		return BaubleType.AMULET;
+	}
+
+	protected static void addEffect(EntityPlayer player, int level, int time, boolean particles) {
+		player.addPotionEffect(new PotionEffect(ModPotions.sin, time, level, false, particles));
+	}
+
+	@Override
+	public boolean hasPhantomInk(ItemStack stack) {
+		return ItemUtil.hasPhantomInk(stack);
+	}
+
+	@Override
+	public void setPhantomInk(ItemStack stack, boolean ink) {
+		ItemUtil.setPhantomInk(stack, ink);
+	}
+
+	@Override
+	public void onPlayerBaubleRender(ItemStack stack, EntityPlayer player, RenderType type,
+			float partialTicks) {
+		//		if (type!=RenderType.BODY)
+		//			return;
+		//		if (stack.getItem() instanceof IPhantomInkable
+		//				&&((IPhantomInkable) stack.getItem()).hasPhantomInk(stack))
+		//			return;
+		//		Minecraft.getMinecraft().renderEngine.bindTexture(texture);
+		//
+		//		Helper.rotateIfSneaking(player);
+		////		GlStateManager.translate(0F, 0.2F, 0F);
+		//
+		//		float s = 1.14F/16F;
+		//		GlStateManager.scale(s, s, s);
+		//		if (model==null)
+		//			model = new ModelBiped();
+		//
+		//		model.bipedBody.render(1);
+	}
+
+	@Override
+	public void onRenderObject(ItemStack stack, EntityPlayer player, boolean isSlim, float partialTicks, float scale) {
+		if ((stack.getItem() instanceof IPhantomInkable)
+				&& ((IPhantomInkable) stack.getItem()).hasPhantomInk(stack)) {
+			return;
+		}
+		if (player.hasItemInSlot(EntityEquipmentSlot.CHEST)) {
+			GlStateManager.translate(0.0F, -0.02F, -0.045F);
+			GlStateManager.scale(1.1F, 1.1F, 1.1F);
+		}
+		Minecraft.getMinecraft().renderEngine.bindTexture(texture);
+
+		//		Helper.rotateIfSneaking(player);
+		//		GlStateManager.translate(0F, 0.2F, 0F);
+
+		final float s = 1.14F / 16F;
+		GlStateManager.scale(s, s, s);
+		if (model == null) {
+			model = new ModelBiped();
+		}
+
+		model.bipedBody.render(1);
+	}
+
+	@Override
+	public RenderType getRenderType() {
+		return RenderType.BODY;
+	}
+}

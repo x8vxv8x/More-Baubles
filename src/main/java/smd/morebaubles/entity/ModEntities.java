@@ -1,0 +1,42 @@
+package smd.morebaubles.entity;
+
+import smd.morebaubles.morebaubles;
+import smd.morebaubles.item.ModItems;
+import net.minecraft.entity.Entity;
+import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
+
+public class ModEntities {
+	public static Entity beenade;
+
+	public static <T extends Entity> void register(String name, Class<T> c, int id) {
+		EntityRegistry.registerModEntity(new ResourceLocation(morebaubles.MODID, name), c,
+				name, id, morebaubles.instance, 128, 10, true);
+	}
+
+	public static <T extends Entity> void registerWithRenderer(String name, Class<T> c, Item i,
+			int id) {
+		register(name, c, id);
+		morebaubles.proxy.registerWithRenderer(name, c, i, id);
+	}
+
+	public static <T extends Entity> void registerWithRenderer(String name, Class<T> c,
+			ResourceLocation texture, int id) {
+		register(name, c, id);
+		morebaubles.proxy.registerWithRenderer(name, c, texture, id);
+	}
+
+	public static void registerEntities() {
+//		morebaubles.logger.info("Registering Entities!");
+		int id = 0;
+		registerWithRenderer("grenade", EntityGrenade.class, ModItems.grenade, id++);
+		registerWithRenderer("beenade", EntityBeenade.class, ModItems.beenade, id++);
+		registerWithRenderer("bee", EntityBee.class,
+				new ResourceLocation(morebaubles.MODID, "textures/other/bee.png"), id++);
+		register("flare", EntityFlare.class, id++);
+//		EntityRegistry.registerModEntity(new ResourceLocation(morebaubles.MODID, "flare"),
+//				EntityFlare.class, "flare", id++, morebaubles.instance, 128, 3, true);
+		morebaubles.proxy.registerEntityRenderingHandlers();
+	}
+}
